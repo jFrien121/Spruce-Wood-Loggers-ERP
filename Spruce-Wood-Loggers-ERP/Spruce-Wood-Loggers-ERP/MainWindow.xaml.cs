@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static MaterialDesignThemes.Wpf.Theme;
 
 namespace Spruce_Wood_Loggers_ERP
 {
@@ -16,9 +17,89 @@ namespace Spruce_Wood_Loggers_ERP
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        static List<int> widths = [1, 2, 3, 4, 5];
+        static List<int> thicknesses = [1, 2, 3, 4];
+        static List<int> lengths = [1, 2, 3, 4, 6, 7, 8, 12, 14, 16];
+
         public MainWindow()
         {
             InitializeComponent();
+
+            initGrid();
+        }
+
+        public void initGrid()
+        {
+            int numColumns = widths.Count * thicknesses.Count();
+
+            for (int i = 0; i < numColumns; i++)
+            {
+                ColumnDefinition newCol = new ColumnDefinition();
+                newCol.Width = GridLength.Auto;
+                MainGrid.ColumnDefinitions.Add(newCol);
+            }
+
+            for (int i = 0; i < lengths.Count; i++)
+            {
+                RowDefinition newRow = new RowDefinition();
+                newRow.Height = GridLength.Auto;
+                MainGrid.RowDefinitions.Add(newRow);
+            }
+
+            for (int i = 0; i < lengths.Count; i++)
+            {
+                for (int j = 0; j < numColumns; j++)
+                {
+                    // Set button settings
+                    var button = new System.Windows.Controls.Button
+                    {
+                        Margin = new Thickness(3),
+                        IsEnabled = true, // This will be replaced by the binding below
+                        Padding = new Thickness(2),
+                        ToolTip = "MaterialDesignRaisedLightButton with Round Corners"
+                    };
+
+                    // Set in place in grid
+                    Grid.SetRow(button, i + 1);
+                    Grid.SetColumn(button, j + 1);
+
+                    // Set style
+                    MaterialDesignThemes.Wpf.ButtonAssist.SetCornerRadius(button, new CornerRadius(5));
+                    button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedLightButton");
+
+
+                    // The following code essentialy means that the isEnabled property
+                    // looks to be set by the Window, not individually
+                    // TODO: Decide if this is something we actually want/ if it is important
+                    //button.SetBinding(
+                    //    UIElement.IsEnabledProperty,
+                    //    new Binding("DataContext.ControlsEnabled")
+                    //    {
+                    //        RelativeSource = new RelativeSource(RelativeSourceMode.FindAncestor)
+                    //        {
+                    //            AncestorType = typeof(Window)
+                    //        }
+                    //    });
+
+                    double widthIndex = (j + 1) / widths.Count();
+
+                    // TODO: Error with buttton numbers across columns
+                    // Discover issue and fix
+                    // Set up text
+                    button.Content = new TextBlock
+                    {
+
+                        Text = $"{widths[(int)Math.Floor(widthIndex)]}\" x {thicknesses[j % thicknesses.Count]}\"\n x {lengths[i]}'",
+                        FontSize = 9,
+                        TextWrapping = TextWrapping.Wrap,
+                        TextAlignment = TextAlignment.Center
+                    };
+
+                    MainGrid.Children.Add(button);
+
+                }
+            }
         }
     }
 }
