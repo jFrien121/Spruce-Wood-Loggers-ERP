@@ -18,7 +18,7 @@ namespace Spruce_Wood_Loggers_ERP
     public partial class MainWindow : Window
     {
 
-        static List<int> widths = [1, 2, 3, 4, 5];
+        static List<int> widths = [1, 2, 3, 4];
         static List<int> thicknesses = [1, 2, 3, 4];
         static List<int> lengths = [1, 2, 3, 4, 6, 7, 8, 12, 14, 16];
 
@@ -36,14 +36,14 @@ namespace Spruce_Wood_Loggers_ERP
             for (int i = 0; i < numColumns; i++)
             {
                 ColumnDefinition newCol = new ColumnDefinition();
-                newCol.Width = GridLength.Auto;
+                //newCol.Width = GridLength.;
                 MainGrid.ColumnDefinitions.Add(newCol);
             }
 
             for (int i = 0; i < lengths.Count; i++)
             {
                 RowDefinition newRow = new RowDefinition();
-                newRow.Height = GridLength.Auto;
+                //newRow.Height = GridLength.Auto;
                 MainGrid.RowDefinitions.Add(newRow);
             }
 
@@ -82,7 +82,7 @@ namespace Spruce_Wood_Loggers_ERP
                     //        }
                     //    });
 
-                    double widthIndex = (j + 1) / widths.Count();
+                    double widthIndex = j / thicknesses.Count();
 
                     // TODO: Error with buttton numbers across columns
                     // Discover issue and fix
