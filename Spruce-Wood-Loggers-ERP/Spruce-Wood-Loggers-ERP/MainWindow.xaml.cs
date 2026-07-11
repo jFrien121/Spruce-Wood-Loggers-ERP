@@ -18,9 +18,9 @@ namespace Spruce_Wood_Loggers_ERP
     public partial class MainWindow : Window
     {
 
-        static List<int> widths = [1, 2, 3, 4];
-        static List<int> thicknesses = [1, 2, 3, 4];
-        static List<int> lengths = [1, 2, 3, 4, 6, 7, 8, 12, 14, 16];
+        static List<double> widths = [3, 4, 6, 8, 10];
+        static List<double> thicknesses = [1, 2, 3, 4];
+        static List<double> lengths = [4, 4.5, 6, 7, 8, 9, 10, 12, 14, 16];
 
         public MainWindow()
         {
@@ -38,6 +38,23 @@ namespace Spruce_Wood_Loggers_ERP
                 ColumnDefinition newCol = new ColumnDefinition();
                 //newCol.Width = GridLength.;
                 MainGrid.ColumnDefinitions.Add(newCol);
+
+                double widthIndex = i / thicknesses.Count();
+
+                // Set up each column header
+                TextBlock header = new TextBlock
+                {
+                    Text = $"{widths[(int)Math.Floor(widthIndex)]}\" x {thicknesses[i % thicknesses.Count]}\"",
+                    FontSize = 10,
+                    TextAlignment = TextAlignment.Center
+                };
+
+                header.Margin = new Thickness(0, 5, 0, 2);
+
+                Grid.SetRow(header, 0);
+                Grid.SetColumn(header, i + 1);
+
+                MainGrid.Children.Add(header);
             }
 
             for (int i = 0; i < lengths.Count; i++)
@@ -45,8 +62,25 @@ namespace Spruce_Wood_Loggers_ERP
                 RowDefinition newRow = new RowDefinition();
                 //newRow.Height = GridLength.Auto;
                 MainGrid.RowDefinitions.Add(newRow);
+
+                // Set up each column header
+                TextBlock header = new TextBlock
+                {
+                    Text = $"{lengths[i]}'",
+                    FontSize = 10,
+                    VerticalAlignment = VerticalAlignment.Center,
+                    TextAlignment = TextAlignment.Right
+                };
+
+                header.Margin = new Thickness(4, 0, 3, 0);
+
+                Grid.SetRow(header, i + 1);
+                Grid.SetColumn(header, 0);
+
+                MainGrid.Children.Add(header);
             }
 
+            // Initialize grid of buttons
             for (int i = 0; i < lengths.Count; i++)
             {
                 for (int j = 0; j < numColumns; j++)
@@ -84,14 +118,12 @@ namespace Spruce_Wood_Loggers_ERP
 
                     double widthIndex = j / thicknesses.Count();
 
-                    // TODO: Error with buttton numbers across columns
-                    // Discover issue and fix
                     // Set up text
                     button.Content = new TextBlock
                     {
 
                         Text = $"{widths[(int)Math.Floor(widthIndex)]}\" x {thicknesses[j % thicknesses.Count]}\"\n x {lengths[i]}'",
-                        FontSize = 9,
+                        FontSize = 8,
                         TextWrapping = TextWrapping.Wrap,
                         TextAlignment = TextAlignment.Center
                     };
