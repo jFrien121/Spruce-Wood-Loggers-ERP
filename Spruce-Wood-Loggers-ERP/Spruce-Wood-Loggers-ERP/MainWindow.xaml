@@ -10,7 +10,8 @@
 	<!-- Program is inside Viewbox to stretch properly -->
 	<Viewbox Stretch="Fill"  StretchDirection="Both">
 		<!-- Grid is set to default size to provide reference for stretching -->
-		<Grid x:Name="MainGrid" Width="800" Height="450">
+		<Grid x:Name="MainGrid" Width="800" Height="450" Background="White">
+
 			<Grid.RowDefinitions>
 				<RowDefinition Height="Auto"/>
 				<!--<RowDefinition Height="Auto"/>
@@ -48,13 +49,29 @@
 				<ColumnDefinition/>-->
 			</Grid.ColumnDefinitions>
 
+			<!--<Image Source="C:\Users\Jocelyn\Documents\GitHub\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-Logo.png"
+			   Stretch="Uniform"
+				Grid.ColumnSpan="30"
+				Grid.RowSpan="30"
+			   HorizontalAlignment="Center"
+			   VerticalAlignment="Center"
+			   IsHitTestVisible="False"/>-->
+
+			<!--<Window.Background>
+				<ImageBrush ImageSource="/Images/logo.png"
+                Stretch="Uniform"
+                Opacity="0.08"
+                AlignmentX="Center"
+                AlignmentY="Center"/>
+			</Window.Background>-->
+
 			<!-- Column and row header backgrounds -->
 			<Border Grid.Row="0" Grid.Column="1" 
 				Grid.ColumnSpan="20" 
-				Background="ForestGreen"/>
+				Background="#2d684f"/>
 			<Border Grid.Column="0" Grid.Row="1" 
 					Grid.RowSpan="10" 
-					Background="ForestGreen"/>
+					Background="#2d684f"/>
 
 			<!--<Button Grid.Row="1" Grid.Column="1"
 				Margin="3px"
@@ -68,7 +85,8 @@
 							x 4'"
 						FontSize="9px"
 						TextWrapping="Wrap"
-						TextAlignment="Center"/>
+						TextAlignment="Center"
+					Foreground="White"/>
 			</Button>-->
 
 		</Grid>

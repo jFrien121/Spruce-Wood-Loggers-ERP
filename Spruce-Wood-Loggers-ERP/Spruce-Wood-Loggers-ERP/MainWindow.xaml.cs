@@ -46,7 +46,8 @@ namespace Spruce_Wood_Loggers_ERP
                 {
                     Text = $"{widths[(int)Math.Floor(widthIndex)]}\" x {thicknesses[i % thicknesses.Count]}\"",
                     FontSize = 10,
-                    TextAlignment = TextAlignment.Center
+                    TextAlignment = TextAlignment.Center,
+                    Foreground = Brushes.White
                 };
 
                 header.Margin = new Thickness(0, 5, 0, 2);
@@ -69,7 +70,8 @@ namespace Spruce_Wood_Loggers_ERP
                     Text = $"{lengths[i]}'",
                     FontSize = 10,
                     VerticalAlignment = VerticalAlignment.Center,
-                    TextAlignment = TextAlignment.Right
+                    TextAlignment = TextAlignment.Right,
+                    Foreground = Brushes.White
                 };
 
                 header.Margin = new Thickness(4, 0, 3, 0);
@@ -98,10 +100,19 @@ namespace Spruce_Wood_Loggers_ERP
                     Grid.SetRow(button, i + 1);
                     Grid.SetColumn(button, j + 1);
 
+                    double widthIndex = j / thicknesses.Count();
+
                     // Set style
                     MaterialDesignThemes.Wpf.ButtonAssist.SetCornerRadius(button, new CornerRadius(5));
-                    button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedLightButton");
 
+                    if (widthIndex % 2 == 0)
+                    {
+                        button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedLightButton");
+                    }
+                    else
+                    {
+                        button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedButton");
+                    }
 
                     // The following code essentialy means that the isEnabled property
                     // looks to be set by the Window, not individually
@@ -115,17 +126,18 @@ namespace Spruce_Wood_Loggers_ERP
                     //            AncestorType = typeof(Window)
                     //        }
                     //    });
-
-                    double widthIndex = j / thicknesses.Count();
+                    
+                    int thicknessIndex = j % thicknesses.Count;
 
                     // Set up text
                     button.Content = new TextBlock
                     {
 
-                        Text = $"{widths[(int)Math.Floor(widthIndex)]}\" x {thicknesses[j % thicknesses.Count]}\"\n x {lengths[i]}'",
+                        Text = $"{widths[(int)Math.Floor(widthIndex)]}\" x {thicknesses[thicknessIndex]}\"\n x {lengths[i]}'",
                         FontSize = 8,
                         TextWrapping = TextWrapping.Wrap,
                         TextAlignment = TextAlignment.Center
+                        
                     };
 
                     MainGrid.Children.Add(button);

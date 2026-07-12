@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -21,6 +22,28 @@ namespace Spruce_Wood_Loggers_ERP
         public DescriptionConfirmation()
         {
             InitializeComponent();
+        }
+
+        private static readonly Regex _regex = new("[^0-9]+");
+
+        private void NumberOnly_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = _regex.IsMatch(e.Text);
+        }
+
+        private void NumberOnly_Pasting(object sender, DataObjectPastingEventArgs e)
+        {
+            if (e.DataObject.GetDataPresent(typeof(string)))
+            {
+                string text = (string)e.DataObject.GetData(typeof(string));
+
+                if (_regex.IsMatch(text))
+                    e.CancelCommand();
+            }
+            else
+            {
+                e.CancelCommand();
+            }
         }
     }
 }
