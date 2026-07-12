@@ -15,14 +15,14 @@ namespace Spruce_Wood_Loggers_ERP
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Spruce_Wood_Loggers_Cut_Tracker : Window
     {
 
         static List<double> widths = [3, 4, 6, 8, 10];
         static List<double> thicknesses = [1, 2, 3, 4];
         static List<double> lengths = [4, 4.5, 6, 7, 8, 9, 10, 12, 14, 16];
 
-        public MainWindow()
+        public Spruce_Wood_Loggers_Cut_Tracker()
         {
             InitializeComponent();
 

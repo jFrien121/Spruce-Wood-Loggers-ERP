@@ -1,11 +1,11 @@
-﻿<Window x:Class="Spruce_Wood_Loggers_ERP.MainWindow"
+﻿<Window x:Class="Spruce_Wood_Loggers_ERP.Spruce_Wood_Loggers_Cut_Tracker"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Spruce_Wood_Loggers_ERP" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
 		mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Spruce_Wood_Loggers_Cut_Tracker" Height="450" Width="800">
 	
 	<!-- Program is inside Viewbox to stretch properly -->
 	<Viewbox Stretch="Fill"  StretchDirection="Both">
@@ -49,13 +49,14 @@
 				<ColumnDefinition/>-->
 			</Grid.ColumnDefinitions>
 
-			<!--<Image Source="C:\Users\Jocelyn\Documents\GitHub\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-Logo.png"
-			   Stretch="Uniform"
-				Grid.ColumnSpan="30"
-				Grid.RowSpan="30"
-			   HorizontalAlignment="Center"
-			   VerticalAlignment="Center"
-			   IsHitTestVisible="False"/>-->
+			<Image Source="C:\Users\Jocelyn\Documents\GitHub\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-Design-2.png"
+				Stretch="Uniform"
+				Grid.Column="0"
+				Grid.Row="0"
+				Height="20"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Bottom"
+				IsHitTestVisible="False"/>
 
 			<!--<Window.Background>
 				<ImageBrush ImageSource="/Images/logo.png"

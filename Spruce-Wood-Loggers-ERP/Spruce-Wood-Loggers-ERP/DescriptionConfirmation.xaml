@@ -10,6 +10,14 @@
     <Grid Background="White">
 		<!--<Separator Margin="20,0,20,0"/>-->
 
+		<Image Source="C:\Users\Jocelyn\Documents\GitHub\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-Design-2.png"
+		Stretch="Uniform"
+		Height="75"
+		HorizontalAlignment="Right"
+		VerticalAlignment="Bottom"
+			   Margin="10"
+		IsHitTestVisible="False"/>
+
 		<StackPanel>
 
 			<!-- Grade options -->
@@ -164,6 +172,8 @@
 					Padding="2px"
 					Content="Cancel"
 						FontSize="20"/>
+
+				
 			</StackPanel>
 
 
