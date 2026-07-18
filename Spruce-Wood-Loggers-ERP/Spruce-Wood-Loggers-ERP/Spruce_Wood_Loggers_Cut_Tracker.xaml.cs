@@ -1,4 +1,6 @@
 ﻿using MaterialDesignThemes.Wpf;
+using System.Diagnostics;
+using System.Diagnostics.SymbolStore;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,11 +23,18 @@ namespace Spruce_Wood_Loggers_ERP
 
         static List<double> widths = [3, 4, 6, 8, 10];
         static List<double> thicknesses = [1, 2, 3, 4];
+        //static List<double> widths = [1];
+        //static List<double> thicknesses = [2];
         static List<double> lengths = [4, 4.5, 6, 7, 8, 9, 10, 12, 14, 16];
 
         public Spruce_Wood_Loggers_Cut_Tracker()
         {
             InitializeComponent();
+
+            using (var db = new AppDbContext())
+            {
+                db.Database.EnsureCreated();
+            }
 
             initGrid();
         }
@@ -40,12 +49,12 @@ namespace Spruce_Wood_Loggers_ERP
                 //newCol.Width = GridLength.;
                 MainGrid.ColumnDefinitions.Add(newCol);
 
-                double widthIndex = i / thicknesses.Count();
+                double thicknessIndex = i / widths.Count();
 
                 // Set up each column header
                 TextBlock header = new TextBlock
                 {
-                    Text = $"{widths[(int)Math.Floor(widthIndex)]}\" x {thicknesses[i % thicknesses.Count]}\"",
+                    Text = $"{thicknesses[(int)Math.Floor(thicknessIndex)]}\" x {widths[i % widths.Count]}\"",
                     FontSize = 10,
                     TextAlignment = TextAlignment.Center,
                     Foreground = Brushes.White
@@ -153,13 +162,29 @@ namespace Spruce_Wood_Loggers_ERP
             }
         }
 
-        private void GridButton_Click(object sender, RoutedEventArgs e)
+        private async void GridButton_Click(object sender, RoutedEventArgs e)
         {
+            var stop = Stopwatch.StartNew();
             var button = sender as DimensionButton;
 
-            var descriptionConfirmation = new DescriptionConfirmation(button.CutThickness, button.CutWidth, button.CutLength);
+            
 
-            MainDialogHost.ShowDialog(descriptionConfirmation);
+            var entryConfirmation = new EntryConfirmation(button.CutThickness, button.CutWidth, button.CutLength)
+            {
+                Owner = this
+            };
+
+            
+
+            this.Opacity = 0.6;
+
+            entryConfirmation.ContentRendered += (_, _) =>
+            {
+                //Debug.WriteLine($"Dialog visible: {sw.ElapsedMilliseconds} ms");
+                var tiem = stop.ElapsedMilliseconds;
+            };
+
+            entryConfirmation.ShowDialog();
         }
     }
 }

@@ -15,39 +15,9 @@
 
 				<Grid.RowDefinitions>
 					<RowDefinition Height="Auto"/>
-					<!--<RowDefinition Height="Auto"/>
-					<RowDefinition/>
-					<RowDefinition/>
-					<RowDefinition/>
-					<RowDefinition/>
-					<RowDefinition/>
-					<RowDefinition/>
-					<RowDefinition/>
-					<RowDefinition/>
-					<RowDefinition/>-->
 				</Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="Auto"/>
-					<!--<ColumnDefinition/>
-					<ColumnDefinition/>
-					<ColumnDefinition/>
-					<ColumnDefinition/>
-					<ColumnDefinition/>
-					<ColumnDefinition/>
-					<ColumnDefinition/>
-					<ColumnDefinition/>
-					<ColumnDefinition/>
-					<ColumnDefinition/>
-					<ColumnDefinition/>
-					<ColumnDefinition/>
-					<ColumnDefinition/>
-					<ColumnDefinition/>
-					<ColumnDefinition/>
-					<ColumnDefinition/>
-					<ColumnDefinition/>
-					<ColumnDefinition/>
-					<ColumnDefinition/>
-					<ColumnDefinition/>-->
 				</Grid.ColumnDefinitions>
 
 				<Image Source="C:\Users\Jocelyn\Documents\GitHub\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-Design-2.png"
@@ -58,14 +28,6 @@
 					HorizontalAlignment="Right"
 					VerticalAlignment="Bottom"
 					IsHitTestVisible="False"/>
-
-				<!--<Window.Background>
-					<ImageBrush ImageSource="/Images/logo.png"
-					Stretch="Uniform"
-					Opacity="0.08"
-					AlignmentX="Center"
-					AlignmentY="Center"/>
-				</Window.Background>-->
 
 				<!-- Column and row header backgrounds -->
 				<Border Grid.Row="0" Grid.Column="1" 

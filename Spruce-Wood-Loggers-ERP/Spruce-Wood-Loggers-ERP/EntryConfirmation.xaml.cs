@@ -9,16 +9,17 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Spruce_Wood_Loggers_ERP
 {
     /// <summary>
-    /// Interaction logic for DescriptionConfirmation.xaml
+    /// Interaction logic for EntryConfirmation.xaml
     /// </summary>
-    public partial class DescriptionConfirmation : UserControl
+    public partial class EntryConfirmation : Window
     {
         private double width;
         private double thickness;
@@ -26,7 +27,7 @@ namespace Spruce_Wood_Loggers_ERP
         private Grade grade;
         private int numPieces;
 
-        public DescriptionConfirmation(double thickness, double width, double length)
+        public EntryConfirmation(double thickness, double width, double length)
         {
             InitializeComponent();
 
@@ -36,13 +37,13 @@ namespace Spruce_Wood_Loggers_ERP
             this.grade = Grade.UNGRADED;
             this.numPieces = 100;
 
-           SetEntryText();
+            SetEntryText();
 
         }
 
         private void SetEntryText()
         {
-            Entry_Description.Text = this.thickness + "\" x " + this.width + "\" x " + this.length + "' " 
+            Entry_Description.Text = this.thickness + "\" x " + this.width + "\" x " + this.length + "' "
                 + GradeToString() + "\nx " + this.numPieces + " pieces";
         }
 
@@ -83,7 +84,16 @@ namespace Spruce_Wood_Loggers_ERP
 
         private void Close_Button_Click(object sender, RoutedEventArgs e)
         {
-            DialogHost.CloseDialogCommand.Execute(null, null);
+            Owner.Opacity = 1;
+            this.Close();
+        }
+
+        private void Confirm_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Batch currBatch = new Batch(DateTime.Now, this.thickness, this.width, this.length, GradeToString(), this.numPieces);
+            BatchPersistence.SaveBatch(currBatch);
+            Owner.Opacity = 1;
+            this.Close();
         }
     }
 }
