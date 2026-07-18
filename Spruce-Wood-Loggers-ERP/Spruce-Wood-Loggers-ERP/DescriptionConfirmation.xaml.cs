@@ -19,9 +19,43 @@ namespace Spruce_Wood_Loggers_ERP
     /// </summary>
     public partial class DescriptionConfirmation : UserControl
     {
-        public DescriptionConfirmation()
+        private double width;
+        private double thickness;
+        private double length;
+        private Grade grade;
+        private int numPieces;
+
+        public DescriptionConfirmation(double thickness, double width, double length)
         {
             InitializeComponent();
+
+            this.width = width;
+            this.thickness = thickness;
+            this.length = length;
+            this.grade = Grade.UNGRADED;
+            this.numPieces = 100;
+
+           SetEntryText();
+
+        }
+
+        private void SetEntryText()
+        {
+            Entry_Description.Text = this.thickness + "\" x " + this.width + "\" x " + this.length + "' " 
+                + GradeToString() + "\nx " + this.numPieces + " pieces";
+        }
+
+        private string GradeToString()
+        {
+            switch (this.grade)
+            {
+                case Grade.UNGRADED: return "Ungraded";
+                case Grade.ONE: return "#1";
+                case Grade.TWO: return "#2";
+                case Grade.THREE: return "#3";
+            }
+
+            return "Ungraded";
         }
 
         private static readonly Regex _regex = new("[^0-9]+");

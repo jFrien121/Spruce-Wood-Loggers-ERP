@@ -8,88 +8,90 @@
         Title="Spruce_Wood_Loggers_Cut_Tracker" Height="450" Width="800">
 	
 	<!-- Program is inside Viewbox to stretch properly -->
-	<Viewbox Stretch="Fill"  StretchDirection="Both">
-		<!-- Grid is set to default size to provide reference for stretching -->
-		<Grid x:Name="MainGrid" Width="800" Height="450" Background="White">
+	<materialDesign:DialogHost x:Name="MainDialogHost">
+		<Viewbox Stretch="Fill"  StretchDirection="Both">
+			<!-- Grid is set to default size to provide reference for stretching -->
+			<Grid x:Name="MainGrid" Width="800" Height="450" Background="White">
 
-			<Grid.RowDefinitions>
-				<RowDefinition Height="Auto"/>
-				<!--<RowDefinition Height="Auto"/>
-				<RowDefinition/>
-				<RowDefinition/>
-				<RowDefinition/>
-				<RowDefinition/>
-				<RowDefinition/>
-				<RowDefinition/>
-				<RowDefinition/>
-				<RowDefinition/>
-				<RowDefinition/>-->
-			</Grid.RowDefinitions>
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="Auto"/>
-				<!--<ColumnDefinition/>
-				<ColumnDefinition/>
-				<ColumnDefinition/>
-				<ColumnDefinition/>
-				<ColumnDefinition/>
-				<ColumnDefinition/>
-				<ColumnDefinition/>
-				<ColumnDefinition/>
-				<ColumnDefinition/>
-				<ColumnDefinition/>
-				<ColumnDefinition/>
-				<ColumnDefinition/>
-				<ColumnDefinition/>
-				<ColumnDefinition/>
-				<ColumnDefinition/>
-				<ColumnDefinition/>
-				<ColumnDefinition/>
-				<ColumnDefinition/>
-				<ColumnDefinition/>
-				<ColumnDefinition/>-->
-			</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<!--<RowDefinition Height="Auto"/>
+					<RowDefinition/>
+					<RowDefinition/>
+					<RowDefinition/>
+					<RowDefinition/>
+					<RowDefinition/>
+					<RowDefinition/>
+					<RowDefinition/>
+					<RowDefinition/>
+					<RowDefinition/>-->
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto"/>
+					<!--<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>-->
+				</Grid.ColumnDefinitions>
 
-			<Image Source="C:\Users\Jocelyn\Documents\GitHub\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-Design-2.png"
-				Stretch="Uniform"
-				Grid.Column="0"
-				Grid.Row="0"
-				Height="20"
-				HorizontalAlignment="Right"
-				VerticalAlignment="Bottom"
-				IsHitTestVisible="False"/>
+				<Image Source="C:\Users\Jocelyn\Documents\GitHub\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-Design-2.png"
+					Stretch="Uniform"
+					Grid.Column="0"
+					Grid.Row="0"
+					Height="20"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Bottom"
+					IsHitTestVisible="False"/>
 
-			<!--<Window.Background>
-				<ImageBrush ImageSource="/Images/logo.png"
-                Stretch="Uniform"
-                Opacity="0.08"
-                AlignmentX="Center"
-                AlignmentY="Center"/>
-			</Window.Background>-->
+				<!--<Window.Background>
+					<ImageBrush ImageSource="/Images/logo.png"
+					Stretch="Uniform"
+					Opacity="0.08"
+					AlignmentX="Center"
+					AlignmentY="Center"/>
+				</Window.Background>-->
 
-			<!-- Column and row header backgrounds -->
-			<Border Grid.Row="0" Grid.Column="1" 
-				Grid.ColumnSpan="20" 
-				Background="#2d684f"/>
-			<Border Grid.Column="0" Grid.Row="1" 
-					Grid.RowSpan="10" 
+				<!-- Column and row header backgrounds -->
+				<Border Grid.Row="0" Grid.Column="1" 
+					Grid.ColumnSpan="20" 
 					Background="#2d684f"/>
+				<Border Grid.Column="0" Grid.Row="1" 
+						Grid.RowSpan="10" 
+						Background="#2d684f"/>
 
-			<!--<Button Grid.Row="1" Grid.Column="1"
-				Margin="3px"
-				materialDesign:ButtonAssist.CornerRadius="5"
-				IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-				Style="{StaticResource MaterialDesignRaisedLightButton}"
-				ToolTip="MaterialDesignRaisedLightButton with Round Corners"
-				Padding="2px">
-				<TextBlock
-						Text="1&quot; x 3&quot;
-							x 4'"
-						FontSize="9px"
-						TextWrapping="Wrap"
-						TextAlignment="Center"
-					Foreground="White"/>
-			</Button>-->
+				<!--<Button Grid.Row="1" Grid.Column="1"
+					Margin="3px"
+					materialDesign:ButtonAssist.CornerRadius="5"
+					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+					Style="{StaticResource MaterialDesignRaisedLightButton}"
+					ToolTip="MaterialDesignRaisedLightButton with Round Corners"
+					Padding="2px">
+					<TextBlock
+							Text="1&quot; x 3&quot;
+								x 4'"
+							FontSize="9px"
+							TextWrapping="Wrap"
+							TextAlignment="Center"
+						Foreground="White"/>
+				</Button>-->
 
-		</Grid>
-	</Viewbox>
+			</Grid>
+		</Viewbox>
+	</materialDesign:DialogHost>
 </Window>

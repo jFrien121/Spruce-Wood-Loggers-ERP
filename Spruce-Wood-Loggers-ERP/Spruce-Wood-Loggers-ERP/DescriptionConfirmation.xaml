@@ -137,7 +137,7 @@
 			   HorizontalAlignment="Stretch"
 			   Margin="20,0,20,0"/>
 
-			<TextBlock
+			<TextBlock x:Name="Entry_Description"
 				Margin="0,30,0,10"
 				Text="1&quot; x 3&quot; x 4' Ungraded&#x0A;x 240 pieces"
 				TextWrapping="Wrap"

@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using MaterialDesignThemes.Wpf;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -87,25 +88,34 @@ namespace Spruce_Wood_Loggers_ERP
             {
                 for (int j = 0; j < numColumns; j++)
                 {
+                    double thickness = thicknesses[j / widths.Count()];
+                    double width = widths[j % widths.Count()];
+                    double length = lengths[i];
+
                     // Set button settings
-                    var button = new System.Windows.Controls.Button
+                    var button = new DimensionButton
                     {
                         Margin = new Thickness(3),
                         IsEnabled = true, // This will be replaced by the binding below
                         Padding = new Thickness(2),
-                        ToolTip = "MaterialDesignRaisedLightButton with Round Corners"
+                        ToolTip = "MaterialDesignRaisedLightButton with Round Corners",
+                        CutThickness = thickness,
+                        CutWidth = width,
+                        CutLength = length
                     };
 
                     // Set in place in grid
                     Grid.SetRow(button, i + 1);
                     Grid.SetColumn(button, j + 1);
+                    button.Click += GridButton_Click; // Set up event handler
 
-                    double widthIndex = j / thicknesses.Count();
+                    double thicknessIndex = j / widths.Count();
 
                     // Set style
                     MaterialDesignThemes.Wpf.ButtonAssist.SetCornerRadius(button, new CornerRadius(5));
 
-                    if (widthIndex % 2 == 0)
+                    // Change colouring every thickness
+                    if (thicknessIndex % 2 == 0)
                     {
                         button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedLightButton");
                     }
@@ -126,14 +136,11 @@ namespace Spruce_Wood_Loggers_ERP
                     //            AncestorType = typeof(Window)
                     //        }
                     //    });
-                    
-                    int thicknessIndex = j % thicknesses.Count;
 
                     // Set up text
                     button.Content = new TextBlock
                     {
-
-                        Text = $"{widths[(int)Math.Floor(widthIndex)]}\" x {thicknesses[thicknessIndex]}\"\n x {lengths[i]}'",
+                        Text = $"{thickness}\" x {width}\"\n x {length}'",
                         FontSize = 8,
                         TextWrapping = TextWrapping.Wrap,
                         TextAlignment = TextAlignment.Center
@@ -144,6 +151,15 @@ namespace Spruce_Wood_Loggers_ERP
 
                 }
             }
+        }
+
+        private void GridButton_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as DimensionButton;
+
+            var descriptionConfirmation = new DescriptionConfirmation(button.CutThickness, button.CutWidth, button.CutLength);
+
+            MainDialogHost.ShowDialog(descriptionConfirmation);
         }
     }
 }
