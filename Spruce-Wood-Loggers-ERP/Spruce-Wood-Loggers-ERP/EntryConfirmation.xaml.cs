@@ -14,6 +14,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
+/**
+ * EntryConfirmation
+ * 
+ * Window that confirms the final details of a cut entry before saving
+ * it to the database
+ */
+
 namespace Spruce_Wood_Loggers_ERP
 {
     /// <summary>
@@ -35,16 +42,15 @@ namespace Spruce_Wood_Loggers_ERP
             this.thickness = thickness;
             this.length = length;
             this.grade = Grade.UNGRADED;
-            this.numPieces = 100;
+            this.numPieces = 240;
 
             SetEntryText();
-
         }
 
         private void SetEntryText()
         {
-            Entry_Description.Text = this.thickness + "\" x " + this.width + "\" x " + this.length + "' "
-                + GradeToString() + "\nx " + this.numPieces + " pieces";
+            Entry_Description.Text = this.thickness + "\" x " + this.width + "\" x " + this.length + "' x " + this.numPieces + " pieces ("
+                + GradeToString() + ")";
         }
 
         private string GradeToString()
@@ -59,6 +65,8 @@ namespace Spruce_Wood_Loggers_ERP
 
             return "Ungraded";
         }
+
+        // Prohibits non-numeric input for the number of pieces TextBox
 
         private static readonly Regex _regex = new("[^0-9]+");
 
@@ -82,12 +90,14 @@ namespace Spruce_Wood_Loggers_ERP
             }
         }
 
+        // Cancel the entry
         private void Close_Button_Click(object sender, RoutedEventArgs e)
         {
             Owner.Opacity = 1;
             this.Close();
         }
 
+        // Save the entry to the database
         private void Confirm_Button_Click(object sender, RoutedEventArgs e)
         {
             Batch currBatch = new Batch(DateTime.Now, this.thickness, this.width, this.length, GradeToString(), this.numPieces);

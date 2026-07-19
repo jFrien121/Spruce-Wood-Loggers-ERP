@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
+/**
+ * BatchPersistence
+ * Handles saving and retrieving batches from the database
+ */
+
 namespace Spruce_Wood_Loggers_ERP
 {
     class BatchPersistence

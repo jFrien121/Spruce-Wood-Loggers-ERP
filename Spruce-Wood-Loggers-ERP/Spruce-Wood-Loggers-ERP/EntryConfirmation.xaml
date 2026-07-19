@@ -7,7 +7,7 @@
 		xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
 		WindowStartupLocation="CenterOwner"
         mc:Ignorable="d"
-        Title="EntryConfirmation" Height="340" Width="650">
+        Title="EntryConfirmation" Height="700" Width="710">
 
 	<WindowChrome.WindowChrome>
 		<WindowChrome
@@ -21,163 +21,176 @@
 		<StackPanel>
 
 			<!-- Grade options -->
+			<TextBlock 
+				Text="Grade" 
+				HorizontalAlignment="Center" 
+				Margin="0,20,0,5" 
+				FontWeight="Bold" 
+				FontSize="20"/>
+			
 			<StackPanel
 				Margin="20"
 				Orientation="Horizontal"
-				VerticalAlignment="Top">
-				<TextBlock
-			Text="Grade: "
-			FontWeight="Bold"
-			FontSize="20"/>
-
-				<RadioButton
-			Style="{StaticResource MaterialDesignRadioButton}"
-			FontSize="20"
-			VerticalContentAlignment="Center"
-			IsChecked="True"
-			Margin="15,0"
-			VerticalAlignment="Stretch">
-					<TextBlock
-				Text="Ungraded"
-				FontSize="20"
-				Margin="0,-3,0,0"/>
-				</RadioButton>
-				<RadioButton
-			Style="{StaticResource MaterialDesignRadioButton}"
-			FontSize="20"
-			VerticalAlignment="Center"
-			Margin="15,0">
-					<TextBlock
-			Text="#1"
-			FontSize="20"
-			Margin="0,-3,0,0"/>
-				</RadioButton>
-				<RadioButton
-			Style="{StaticResource MaterialDesignRadioButton}"
-			FontSize="20"
-			Margin="15,0">
-					<TextBlock
-			Text="#2"
-			FontSize="20"
-			Margin="0,-3,0,0"/>
-				</RadioButton>
-				<RadioButton
-			Style="{StaticResource MaterialDesignRadioButton}"
-			FontSize="20"
-			Margin="15,0">
-					<TextBlock
-			Text="#3"
-			FontSize="20"
-			Margin="0,-3,0,0"/>
-				</RadioButton>
+				VerticalAlignment="Top"
+				HorizontalAlignment="Center">
+				<Button Margin="3" Width="80" Height="45" Content="Ungraded" Padding="1" Background="Green" Foreground="White"/>
+				<Button Margin="3" Width="80" Height="45"  Content="#1" Padding="1"/>
+				<Button Margin="3" Width="80" Height="45"  Content="#2" Padding="1"/>
+				<Button Margin="3" Width="80" Height="45"  Content="#3" Padding="1"/>
 
 			</StackPanel>
 
 			<Rectangle Height="1"
-	   Fill="LightGray"
-	   HorizontalAlignment="Stretch"
-	   Margin="20,0,20,0"/>
+			   Fill="LightGray"
+			   HorizontalAlignment="Stretch"
+			   Margin="20,0,20,0"/>
 
-			<!-- Number of pieces options -->
+			<!-- Standard number of pieces options -->
+			<TextBlock 
+				Text="Standard Quantity" 
+				HorizontalAlignment="Center" 
+				Margin="0,20,0,5" 
+				FontWeight="Bold" 
+				FontSize="20"></TextBlock>
+
 			<StackPanel
-		Margin="20"
-		Orientation="Horizontal"
-		VerticalAlignment="Center">
-				<TextBlock
-			Text="Number of Pieces: "
-			FontWeight="Bold"
-			FontSize="20"
-			VerticalAlignment="Center"/>
+				Margin="20"
+				Orientation="Horizontal"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Center">
 
-				<RadioButton
-			Style="{StaticResource MaterialDesignRadioButton}"
-			FontSize="20"
-			VerticalContentAlignment="Center"
-			IsChecked="True"
-			Margin="15,0">
-					<ComboBox
-				x:Name="OutlinedComboBox"
-				Width="150"
-				Height="40"
-				FontSize="15"
-				Padding="10,2"
-				Margin="7,0"
-				materialDesign:HintAssist.Hint="Standard"
-				IsEnabled="True"
-				Style="{StaticResource MaterialDesignOutlinedComboBox}">
-						<ComboBoxItem Content="Option 1"/>
-						<ComboBoxItem Content="Option 2"/>
-						<ComboBoxItem Content="Option 3"/>
-						<ComboBoxItem Content="Option 4"/>
-					</ComboBox>
-				</RadioButton>
-				<RadioButton
-			Style="{StaticResource MaterialDesignRadioButton}"
-			FontSize="20"
-			VerticalAlignment="Center"
-			Margin="15,0">
-					<TextBox
-				Height="40"
-				Width="150"
-				Margin="7,0"
-				FontSize="15"
-				Padding="10,2"
-				materialDesign:HintAssist.Hint="Custom"
-				AcceptsReturn="True"
-				IsEnabled="True"
-				Style="{StaticResource MaterialDesignOutlinedTextBox}"
-				PreviewTextInput="NumberOnly_PreviewTextInput"
-				DataObject.Pasting="NumberOnly_Pasting"/>
-				</RadioButton>
+				<Button Margin="3" Width="60" Height ="45" Content="100" Padding="1"/>
+				<Button Margin="3" Width="60" Height ="45" Content="200" Padding="1"/>
+				<Button Margin="3" Width="60" Height ="45" Content="240" Padding="1"/>
+				<Button Margin="3" Width="60" Height ="45" Content="?" Padding="1"/>
+				<Button Margin="3" Width="60" Height ="45" Content="?" Padding="1"/>
+				<Button Margin="3" Width="60" Height ="45" Content="?" Padding="1"/>
+				<Button Margin="3" Width="60" Height ="45" Content="?" Padding="1"/>
+				<Button Margin="3" Width="60" Height ="45" Content="?" Padding="1"/>
+				<Button Margin="3" Width="60" Height ="45" Content="?" Padding="1"/>
+				<Button Margin="3" Width="60" Height ="45" Content="?" Padding="1"/>
 
 			</StackPanel>
 
 			<Rectangle Height="1"
-	   Fill="LightGray"
-	   HorizontalAlignment="Stretch"
-	   Margin="20,0,20,0"/>
+				Fill="LightGray"
+				HorizontalAlignment="Stretch"
+				Margin="20,0,20,0"/>
+
+			<!-- Custom number of pieces options -->
+			<TextBlock 
+				Text="Custom Quantity" 
+				HorizontalAlignment="Center" 
+				Margin="0,20,0,5" 
+				FontWeight="Bold" 
+				FontSize="20"/>
+
+			<StackPanel 				
+				Margin="20"
+				HorizontalAlignment="Center"
+				Orientation="Horizontal">
+
+				<Button Margin="3" Width="60" Height ="45" Content="1" Padding="1"/>
+				<Button Margin="3" Width="60" Height ="45" Content="2" Padding="1"/>
+				<Button Margin="3" Width="60" Height ="45" Content="3" Padding="1"/>
+				<Button Margin="3" Width="60" Height ="45" Content="4" Padding="1"/>
+				<Button Margin="3" Width="60" Height ="45" Content="5" Padding="1"/>
+				<Button Margin="3" Width="60" Height ="45" Content="6" Padding="1"/>
+				<Button Margin="3" Width="60" Height ="45" Content="7" Padding="1"/>
+				<Button Margin="3" Width="60" Height ="45" Content="8" Padding="1"/>
+				<Button Margin="3" Width="60" Height ="45" Content="9" Padding="1"/>
+				<Button Margin="3" Width="60" Height ="45" Content="0" Padding="1"/>
+			</StackPanel>
+
+			<!-- Custom number of pieces entry fields -->
+			<StackPanel Margin="10"
+				HorizontalAlignment="Center"
+				Orientation="Horizontal">
+
+				<TextBox
+					Height="45"
+					Width="130"
+					Margin="10,0,10,10"
+					FontSize="15"
+					Padding="10,2"
+					materialDesign:HintAssist.Hint="Custom"
+					AcceptsReturn="True"
+					IsEnabled="True"
+					Style="{StaticResource MaterialDesignOutlinedTextBox}"
+					PreviewTextInput="NumberOnly_PreviewTextInput"
+					DataObject.Pasting="NumberOnly_Pasting"/>
+
+				<Button Grid.Row="1" Grid.Column="1"
+					Margin="10,0,10,10"
+					materialDesign:ButtonAssist.CornerRadius="5"
+					Width="130"
+					Height="45"
+					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+					Style="{StaticResource MaterialDesignRaisedLightButton}"
+					ToolTip="MaterialDesignRaisedLightButton with Round Corners"
+					Padding="2px"
+					Content="Enter"
+					FontSize="20"/>
+			</StackPanel>
+
+
+			<Rectangle Height="1"
+			   Fill="LightGray"
+			   HorizontalAlignment="Stretch"
+			   Margin="20,0,20,0"/>
+
+			<!-- Final confirmation display -->
+			<TextBlock 
+				Text="Please Confirm Your Selection" 
+				HorizontalAlignment="Center" 
+				Margin="0,20,0,5" 
+				FontWeight="Bold" 
+				TextDecorations="Underline" 
+				FontSize="20"/>
 
 			<TextBlock x:Name="Entry_Description"
-		Margin="0,30,0,10"
-		Text="1&quot; x 3&quot; x 4' Ungraded&#x0A;x 240 pieces"
-		TextWrapping="Wrap"
-		FontSize="20"
-		HorizontalAlignment="Center"
-		TextAlignment="Center"
-		FontWeight="DemiBold"/>
+				Margin="0,10,0,10"
+				Text="1&quot; x 3&quot; x 4' x 240 pieces (Ungraded)"
+				TextWrapping="Wrap"
+				FontSize="20"
+				HorizontalAlignment="Center"
+				TextAlignment="Center"
+				FontWeight="DemiBold"/>
 
 			<StackPanel
-		Margin="10"
-		HorizontalAlignment="Center"
-		Orientation="Horizontal">
+				Margin="10"
+				HorizontalAlignment="Center"
+				Orientation="Horizontal">
 				<Button x:Name="Confirm_Button"
 					Grid.Row="1" Grid.Column="1"
 					Margin="10,0"
 					materialDesign:ButtonAssist.CornerRadius="5"
 					Width="130"
-					Height="40"
+					Height="45"
 					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
 					Style="{StaticResource MaterialDesignRaisedLightButton}"
 					ToolTip="MaterialDesignRaisedLightButton with Round Corners"
 					Padding="2px"
 					Content="Confirm"
 					FontSize="20"
-					Click="Confirm_Button_Click"/>
+						Click="Confirm_Button_Click"/>
 				<Button x:Name="Close_Button"
-			Grid.Row="1" Grid.Column="1"
-			Margin="10,0"
-			materialDesign:ButtonAssist.CornerRadius="5"
-			Width="130"
-			Height="40"
-			IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-			Style="{StaticResource MaterialDesignPaperLightButton}"
-			ToolTip="MaterialDesignRaisedLightButton with Round Corners"
-			Padding="2px"
-			Content="Cancel"
-			FontSize="20"
-			Click="Close_Button_Click"/>
+					Grid.Row="1" Grid.Column="1"
+					Margin="10,0"
+					materialDesign:ButtonAssist.CornerRadius="5"
+					Width="130"
+					Height="45"
+					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+					Style="{StaticResource MaterialDesignPaperLightButton}"
+					ToolTip="MaterialDesignRaisedLightButton with Round Corners"
+					Padding="2px"
+					Content="Cancel"
+					FontSize="20"
+					Click="Close_Button_Click"/>
 
 			</StackPanel>
 		</StackPanel>
 	</Grid>
 </Window>
+
+	

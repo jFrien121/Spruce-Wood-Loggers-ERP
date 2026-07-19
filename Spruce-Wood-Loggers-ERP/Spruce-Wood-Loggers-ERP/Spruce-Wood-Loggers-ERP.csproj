@@ -16,6 +16,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="PDFsharp-MigraDoc-gdi" Version="6.2.4" />
   </ItemGroup>
 
 </Project>

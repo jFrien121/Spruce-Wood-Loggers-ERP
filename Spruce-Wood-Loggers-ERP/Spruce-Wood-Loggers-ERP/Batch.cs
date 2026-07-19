@@ -5,14 +5,13 @@ using System.Text;
 /**
  * Batch
  * Holds information about a processed batch of logs
- * 
  */
 
 namespace Spruce_Wood_Loggers_ERP
 {
     class Batch
     {
-        public int id { get; set; }
+        public int id { get; set; } // primary key
         public DateTime timeProcessed { get; set; }
         public double thickness { get; set; }
         public double width { get; set; }
@@ -30,6 +29,7 @@ namespace Spruce_Wood_Loggers_ERP
             this.numPieces = numPieces;
         }
 
+        // Emptry constructor for database purposes
         public Batch()
         {
 

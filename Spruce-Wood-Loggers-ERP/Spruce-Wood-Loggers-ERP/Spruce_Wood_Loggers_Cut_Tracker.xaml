@@ -20,14 +20,26 @@
 					<ColumnDefinition Width="Auto"/>
 				</Grid.ColumnDefinitions>
 
-				<Image Source="C:\Users\Jocelyn\Documents\GitHub\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-Design-2.png"
-					Stretch="Uniform"
-					Grid.Column="0"
-					Grid.Row="0"
-					Height="20"
-					HorizontalAlignment="Right"
-					VerticalAlignment="Bottom"
-					IsHitTestVisible="False"/>
+				<!--<Image Source="C:\Users\Jocelyn\Documents\GitHub\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-Design-2.png"
+						Stretch="Uniform"
+						Grid.Column="0"
+						Grid.Row="0"
+						Height="20"
+						HorizontalAlignment="Right"
+						VerticalAlignment="Bottom"
+						IsHitTestVisible="False"/>-->
+
+				<Button x:Name="Print_Button"
+						Grid.Column="0" Grid.Row="0"
+						Content="Print"
+						Style="{StaticResource MaterialDesignRaisedButton}"
+						materialDesign:ButtonAssist.CornerRadius="5"
+						Margin="3px"
+						Padding="2px"
+						FontSize="6"
+						Height="20"
+						Width="20"
+						Click="Print_Button_Click"/>
 
 				<!-- Column and row header backgrounds -->
 				<Border Grid.Row="0" Grid.Column="1" 
