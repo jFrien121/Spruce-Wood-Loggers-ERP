@@ -27,5 +27,16 @@ namespace Spruce_Wood_Loggers_ERP
 
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Owner.Opacity = 1;
+            this.Close();
+        }
+
+        private void NumberPiecesClose_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

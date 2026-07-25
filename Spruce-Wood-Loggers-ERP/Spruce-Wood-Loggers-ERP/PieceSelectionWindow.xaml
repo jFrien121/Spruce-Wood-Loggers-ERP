@@ -18,7 +18,22 @@
 	</WindowChrome.WindowChrome>
 
 	<Grid>
-		<materialDesign:PackIcon Kind="Close" HorizontalAlignment="Right"/>
+		<Button x:Name="NumberPiecesClose_Button"
+			HorizontalAlignment="Right" 
+			Background="Transparent" 
+			VerticalAlignment="Top" 
+			Padding="0,0" 
+			BorderBrush="Transparent" 
+			Height="50" 
+			Margin="0,5,5,0"
+			Click="NumberPiecesClose_Button_Click">
+			<materialDesign:PackIcon Kind="Close" 
+									 HorizontalAlignment="Right" 
+									 Width="50" 
+									 Height="50" 
+									 Margin="0,0" 
+									 Foreground="Gray"/>
+		</Button>
 
 		<StackPanel VerticalAlignment="Center">
 
