@@ -10,7 +10,7 @@
 				<materialDesign:CustomColorTheme 
 					BaseTheme="Light"
 					PrimaryColor="#907764"
-					SecondaryColor="Lime" />
+					SecondaryColor="#27614d" />
 
 				<ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign2.Defaults.xaml" />
 			</ResourceDictionary.MergedDictionaries>

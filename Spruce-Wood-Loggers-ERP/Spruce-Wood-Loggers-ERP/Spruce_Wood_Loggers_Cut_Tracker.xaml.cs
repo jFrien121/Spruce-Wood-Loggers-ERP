@@ -157,14 +157,19 @@ namespace Spruce_Wood_Loggers_ERP
         {
             var button = sender as DimensionButton;
 
-            var entryConfirmation = new EntryConfirmation(button.CutThickness, button.CutWidth, button.CutLength)
+            //var entryConfirmation = new EntryConfirmation(button.CutThickness, button.CutWidth, button.CutLength)
+            //{
+            //    Owner = this
+            //};
+
+            var pieceSelection = new PieceSelectionWindow(button.CutThickness, button.CutWidth)
             {
                 Owner = this
             };
 
             this.Opacity = 0.6; // Dim the main window while the entry confirmation is open
 
-            entryConfirmation.ShowDialog();
+            pieceSelection.ShowDialog();
         }
 
         // Print a daily report
