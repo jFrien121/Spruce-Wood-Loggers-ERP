@@ -7,7 +7,7 @@
 		xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
 		WindowStartupLocation="CenterOwner"
         mc:Ignorable="d"
-        Title="EntryConfirmation" Height="700" Width="710">
+        Title="EntryConfirmation" Height="450" Width="710">
 
 	<WindowChrome.WindowChrome>
 		<WindowChrome
@@ -26,118 +26,83 @@
 				HorizontalAlignment="Center" 
 				Margin="0,20,0,5" 
 				FontWeight="Bold" 
-				FontSize="20"/>
+				FontSize="30"/>
 			
 			<StackPanel
 				Margin="20"
 				Orientation="Horizontal"
 				VerticalAlignment="Top"
 				HorizontalAlignment="Center">
-				<Button Margin="3" Width="80" Height="45" Content="Ungraded" Padding="1" Background="Green" Foreground="White"/>
-				<Button Margin="3" Width="80" Height="45"  Content="#1" Padding="1"/>
-				<Button Margin="3" Width="80" Height="45"  Content="#2" Padding="1"/>
-				<Button Margin="3" Width="80" Height="45"  Content="#3" Padding="1"/>
-
-			</StackPanel>
-
-			<Rectangle Height="1"
-			   Fill="LightGray"
-			   HorizontalAlignment="Stretch"
-			   Margin="20,0,20,0"/>
-
-			<!-- Standard number of pieces options -->
-			<TextBlock 
-				Text="Standard Quantity" 
-				HorizontalAlignment="Center" 
-				Margin="0,20,0,5" 
-				FontWeight="Bold" 
-				FontSize="20"></TextBlock>
-
-			<StackPanel
-				Margin="20"
-				Orientation="Horizontal"
-				VerticalAlignment="Center"
-				HorizontalAlignment="Center">
-
-				<Button Margin="3" Width="60" Height ="45" Content="100" Padding="1"/>
-				<Button Margin="3" Width="60" Height ="45" Content="200" Padding="1"/>
-				<Button Margin="3" Width="60" Height ="45" Content="240" Padding="1"/>
-				<Button Margin="3" Width="60" Height ="45" Content="?" Padding="1"/>
-				<Button Margin="3" Width="60" Height ="45" Content="?" Padding="1"/>
-				<Button Margin="3" Width="60" Height ="45" Content="?" Padding="1"/>
-				<Button Margin="3" Width="60" Height ="45" Content="?" Padding="1"/>
-				<Button Margin="3" Width="60" Height ="45" Content="?" Padding="1"/>
-				<Button Margin="3" Width="60" Height ="45" Content="?" Padding="1"/>
-				<Button Margin="3" Width="60" Height ="45" Content="?" Padding="1"/>
-
-			</StackPanel>
-
-			<Rectangle Height="1"
-				Fill="LightGray"
-				HorizontalAlignment="Stretch"
-				Margin="20,0,20,0"/>
-
-			<!-- Custom number of pieces options -->
-			<TextBlock 
-				Text="Custom Quantity" 
-				HorizontalAlignment="Center" 
-				Margin="0,20,0,5" 
-				FontWeight="Bold" 
-				FontSize="20"/>
-
-			<StackPanel 				
-				Margin="20"
-				HorizontalAlignment="Center"
-				Orientation="Horizontal">
-
-				<Button Margin="3" Width="60" Height ="45" Content="1" Padding="1"/>
-				<Button Margin="3" Width="60" Height ="45" Content="2" Padding="1"/>
-				<Button Margin="3" Width="60" Height ="45" Content="3" Padding="1"/>
-				<Button Margin="3" Width="60" Height ="45" Content="4" Padding="1"/>
-				<Button Margin="3" Width="60" Height ="45" Content="5" Padding="1"/>
-				<Button Margin="3" Width="60" Height ="45" Content="6" Padding="1"/>
-				<Button Margin="3" Width="60" Height ="45" Content="7" Padding="1"/>
-				<Button Margin="3" Width="60" Height ="45" Content="8" Padding="1"/>
-				<Button Margin="3" Width="60" Height ="45" Content="9" Padding="1"/>
-				<Button Margin="3" Width="60" Height ="45" Content="0" Padding="1"/>
-			</StackPanel>
-
-			<!-- Custom number of pieces entry fields -->
-			<StackPanel Margin="10"
-				HorizontalAlignment="Center"
-				Orientation="Horizontal">
-
-				<TextBox
-					Height="45"
-					Width="130"
-					Margin="10,0,10,10"
-					FontSize="15"
-					Padding="10,2"
-					materialDesign:HintAssist.Hint="Custom"
-					AcceptsReturn="True"
-					IsEnabled="True"
-					Style="{StaticResource MaterialDesignOutlinedTextBox}"
-					PreviewTextInput="NumberOnly_PreviewTextInput"
-					DataObject.Pasting="NumberOnly_Pasting"/>
-
-				<Button Grid.Row="1" Grid.Column="1"
-					Margin="10,0,10,10"
+				<Button x:Name="Ungraded_Button"
+				Margin="5px"
+				materialDesign:ButtonAssist.CornerRadius="5"
+				IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+				Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
+				Padding="2px"
+				Height="65px"
+				Width="150px" Click="Ungraded_Button_Click">
+					<TextBlock
+					Text="Ungraded"
+					FontSize="25px"
+					TextWrapping="Wrap"
+					TextAlignment="Center"
+					Foreground="White"/>
+				</Button>
+				<Button x:Name="Grade1_Button"
+					Margin="5px"
 					materialDesign:ButtonAssist.CornerRadius="5"
-					Width="130"
-					Height="45"
 					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-					Style="{StaticResource MaterialDesignRaisedLightButton}"
-					ToolTip="MaterialDesignRaisedLightButton with Round Corners"
+					Style="{StaticResource MaterialDesignRaisedButton}"
 					Padding="2px"
-					Content="Enter"
-					FontSize="20"/>
-			</StackPanel>
+					Height="65px"
+					Width="150px"
+						Click="Grade1_Button_Click">
+					<TextBlock
+						Text="#1"
+						FontSize="25px"
+						TextWrapping="Wrap"
+						TextAlignment="Center"
+						Foreground="White"/>
+				</Button>
+				<Button x:Name="Grade2_Button"
+					Margin="5px"
+					materialDesign:ButtonAssist.CornerRadius="5"
+					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+					Style="{StaticResource MaterialDesignRaisedButton}"
+					Padding="2px"
+					Height="65px"
+					Width="150px"
+						Click="Grade2_Button_Click">
+					<TextBlock
+				Text="#2"
+				FontSize="25px"
+				TextWrapping="Wrap"
+				TextAlignment="Center"
+				Foreground="White"/>
+				</Button>
+				<Button x:Name="Grade3_Button"
+					Margin="5px"
+					materialDesign:ButtonAssist.CornerRadius="5"
+					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+					Style="{StaticResource MaterialDesignRaisedButton}"
+					Padding="2px"
+					Height="65px"
+					Width="150px"
+						Click="Grade3_Button_Click">
+					<TextBlock
+				Text="#3"
+				FontSize="25px"
+				TextWrapping="Wrap"
+				TextAlignment="Center"
+				Foreground="White"/>
+				</Button>
 
+			</StackPanel>
 
 			<Rectangle Height="1"
 			   Fill="LightGray"
 			   HorizontalAlignment="Stretch"
-			   Margin="20,0,20,0"/>
+			   Margin="20,5,20,5"/>
 
 			<!-- Final confirmation display -->
 			<TextBlock 
@@ -146,46 +111,46 @@
 				Margin="0,20,0,5" 
 				FontWeight="Bold" 
 				TextDecorations="Underline" 
-				FontSize="20"/>
+				FontSize="30"/>
 
 			<TextBlock x:Name="Entry_Description"
 				Margin="0,10,0,10"
 				Text="1&quot; x 3&quot; x 4' x 240 pieces (Ungraded)"
 				TextWrapping="Wrap"
-				FontSize="20"
+				FontSize="25"
 				HorizontalAlignment="Center"
 				TextAlignment="Center"
 				FontWeight="DemiBold"/>
 
 			<StackPanel
-				Margin="10"
+				Margin="25"
 				HorizontalAlignment="Center"
 				Orientation="Horizontal">
 				<Button x:Name="Confirm_Button"
 					Grid.Row="1" Grid.Column="1"
 					Margin="10,0"
 					materialDesign:ButtonAssist.CornerRadius="5"
-					Width="130"
-					Height="45"
+					Height="65px"
+					Width="150px"
 					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-					Style="{StaticResource MaterialDesignRaisedLightButton}"
-					ToolTip="MaterialDesignRaisedLightButton with Round Corners"
+					Style="{StaticResource MaterialDesignRaisedDarkButton}"
 					Padding="2px"
 					Content="Confirm"
-					FontSize="20"
+					FontSize="25"
+						Foreground="White"
 						Click="Confirm_Button_Click"/>
 				<Button x:Name="Close_Button"
 					Grid.Row="1" Grid.Column="1"
 					Margin="10,0"
 					materialDesign:ButtonAssist.CornerRadius="5"
-					Width="130"
-					Height="45"
+					Height="65px"
+					Width="150px"
 					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-					Style="{StaticResource MaterialDesignPaperLightButton}"
+					Style="{StaticResource MaterialDesignPaperDarkButton}"
 					ToolTip="MaterialDesignRaisedLightButton with Round Corners"
 					Padding="2px"
 					Content="Cancel"
-					FontSize="20"
+					FontSize="25"
 					Click="Close_Button_Click"/>
 
 			</StackPanel>

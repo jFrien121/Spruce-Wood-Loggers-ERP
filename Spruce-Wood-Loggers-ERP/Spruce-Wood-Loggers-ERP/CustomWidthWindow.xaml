@@ -19,6 +19,23 @@
 
 	<Grid>
 
+		<Button x:Name="PiecesWideClose_Button"
+				HorizontalAlignment="Right" 
+				Background="Transparent" 
+				VerticalAlignment="Top" 
+				Padding="0,0" 
+				BorderBrush="Transparent" 
+				Height="50" 
+				Margin="0,5,5,0"
+				Click="PiecesWideClose_Button_Click">
+			<materialDesign:PackIcon Kind="Close" 
+							 HorizontalAlignment="Right" 
+							 Width="50" 
+							 Height="50" 
+							 Margin="0,0" 
+							 Foreground="Gray"/>
+		</Button>
+
 		<StackPanel VerticalAlignment="Center">
 
 		<TextBlock 
@@ -36,7 +53,7 @@
 				Style="{StaticResource MaterialDesignRaisedButton}"
 				Padding="2px"
 				Height="65px"
-				Width="80px">
+				Width="80px" Click="WidthButton_Click">
 					<TextBlock
 					Text="6"
 					FontSize="25px"
@@ -51,7 +68,7 @@
 				Style="{StaticResource MaterialDesignRaisedButton}"
 				Padding="2px"
 				Height="65px"
-				Width="80px">
+				Width="80px" Click="WidthButton_Click">
 					<TextBlock
 					Text="7"
 					FontSize="25px"
@@ -66,7 +83,7 @@
 				Style="{StaticResource MaterialDesignRaisedButton}"
 				Padding="2px"
 				Height="65px"
-				Width="80px">
+				Width="80px" Click="WidthButton_Click">
 					<TextBlock
 					Text="8"
 					FontSize="25px"
@@ -81,7 +98,7 @@
 				Style="{StaticResource MaterialDesignRaisedButton}"
 				Padding="2px"
 				Height="65px"
-				Width="80px">
+				Width="80px" Click="WidthButton_Click">
 					<TextBlock
 					Text="9"
 					FontSize="25px"
@@ -96,7 +113,7 @@
 				Style="{StaticResource MaterialDesignRaisedButton}"
 				Padding="2px"
 				Height="65px"
-				Width="80px">
+				Width="80px" Click="WidthButton_Click">
 					<TextBlock
 					Text="10"
 					FontSize="25px"
@@ -114,7 +131,7 @@
 					Style="{StaticResource MaterialDesignRaisedButton}"
 					Padding="2px"
 					Height="65px"
-					Width="80px">
+					Width="80px" Click="WidthButton_Click">
 					<TextBlock
 						Text="11"
 						FontSize="25px"
@@ -129,7 +146,7 @@
 					Style="{StaticResource MaterialDesignRaisedButton}"
 					Padding="2px"
 					Height="65px"
-					Width="80px">
+					Width="80px" Click="WidthButton_Click">
 					<TextBlock
 						Text="12"
 						FontSize="25px"
@@ -144,7 +161,7 @@
 					Style="{StaticResource MaterialDesignRaisedButton}"
 					Padding="2px"
 					Height="65px"
-					Width="80px">
+					Width="80px" Click="WidthButton_Click">
 					<TextBlock
 						Text="13"
 						FontSize="25px"
@@ -159,7 +176,7 @@
 					Style="{StaticResource MaterialDesignRaisedButton}"
 					Padding="2px"
 					Height="65px"
-					Width="80px">
+					Width="80px" Click="WidthButton_Click">
 					<TextBlock
 						Text="14"
 						FontSize="25px"
@@ -174,7 +191,7 @@
 					Style="{StaticResource MaterialDesignRaisedButton}"
 					Padding="2px"
 					Height="65px"
-					Width="80px">
+					Width="80px" Click="WidthButton_Click">
 					<TextBlock
 						Text="15"
 						FontSize="25px"

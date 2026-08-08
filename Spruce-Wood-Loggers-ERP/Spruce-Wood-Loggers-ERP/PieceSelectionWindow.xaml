@@ -58,7 +58,7 @@
 					Style="{StaticResource MaterialDesignRaisedButton}"
 					Padding="2px"
 					Height="65px"
-					Width="80px">
+					Width="80px" Click="PieceNumberButton_Click">
 					<TextBlock
 						Text="64"
 						FontSize="25px"
@@ -73,7 +73,8 @@
 				Style="{StaticResource MaterialDesignRaisedButton}"
 				Padding="2px"
 				Height="65px"
-Width="80px">
+Width="80px"
+					Click="PieceNumberButton_Click">
 					<TextBlock
 					Text="96"
 					FontSize="25px"
@@ -88,7 +89,8 @@ Width="80px">
 				Style="{StaticResource MaterialDesignRaisedButton}"
 				Padding="2px"
 				Height="65px"
-Width="80px">
+Width="80px"
+					Click="PieceNumberButton_Click">
 					<TextBlock
 					Text="120"
 					FontSize="25"
@@ -103,7 +105,8 @@ Width="80px">
 				Style="{StaticResource MaterialDesignRaisedButton}"
 				Padding="2px"
 				Height="65px"
-Width="80px">
+Width="80px"
+					Click="PieceNumberButton_Click">
 					<TextBlock
 					Text="180"
 					FontSize="25px"
@@ -118,7 +121,8 @@ Width="80px">
 					Style="{StaticResource MaterialDesignRaisedButton}"
 					Padding="2px"
 					Height="65px"
-Width="80px">
+Width="80px"
+					Click="PieceNumberButton_Click">
 					<TextBlock
 					Text="192"
 					FontSize="25px"
@@ -133,7 +137,8 @@ Width="80px">
 					Style="{StaticResource MaterialDesignRaisedButton}"
 					Padding="2px"
 					Height="65px"
-Width="80px">
+Width="80px"
+					Click="PieceNumberButton_Click">
 					<TextBlock
 					Text="225"
 					FontSize="25px"
@@ -148,7 +153,8 @@ Width="80px">
 					Style="{StaticResource MaterialDesignRaisedButton}"
 					Padding="2px"
 					Height="65px"
-Width="80px">
+Width="80px"
+					Click="PieceNumberButton_Click">
 					<TextBlock
 					Text="240"
 					FontSize="25px"
@@ -163,7 +169,8 @@ Width="80px">
 					Style="{StaticResource MaterialDesignRaisedButton}"
 					Padding="2px"
 					Height="65px"
-Width="80px">
+					Width="80px"
+					Click="PieceNumberButton_Click">
 					<TextBlock
 						Text="360"
 						FontSize="25px"
@@ -174,14 +181,15 @@ Width="80px">
 
 			</StackPanel>
 
-		<Button
+		<Button x:Name="SelectCustomNumber_Button"
 			Margin="10px"
 			materialDesign:ButtonAssist.CornerRadius="5"
 			IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
 			Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
 			Padding="2px"
 			Height="65"
-			Width="300px">
+			Width="300px"
+				Click="SelectCustomNumber_Button_Click">
 			<TextBlock
 				Text="Select Custom Number"
 				FontSize="25px"

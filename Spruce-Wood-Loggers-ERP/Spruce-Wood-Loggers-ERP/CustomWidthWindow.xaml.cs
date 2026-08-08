@@ -21,5 +21,22 @@ namespace Spruce_Wood_Loggers_ERP
         {
             InitializeComponent();
         }
+
+        private void PiecesWideClose_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Owner.Opacity = 1;
+            this.Close();
+        }
+
+        private void WidthButton_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            var textBlock = button!.Content as TextBlock;
+
+            int liftWidth = int.Parse(textBlock!.Text);
+
+            CurrentBatch.setLiftWidth(liftWidth);
+            this.Close();
+        }
     }
 }

@@ -28,66 +28,19 @@ namespace Spruce_Wood_Loggers_ERP
     /// </summary>
     public partial class EntryConfirmation : Window
     {
-        private double width;
-        private double thickness;
-        private double length;
-        private Grade grade;
-        private int numPieces;
 
-        public EntryConfirmation(double thickness, double width, double length)
+        public EntryConfirmation()
         {
             InitializeComponent();
-
-            this.width = width;
-            this.thickness = thickness;
-            this.length = length;
-            this.grade = Grade.UNGRADED;
-            this.numPieces = 240;
-
+            CurrentBatch.setGrade(Grade.UNGRADED);
             SetEntryText();
         }
 
         private void SetEntryText()
         {
-            Entry_Description.Text = this.thickness + "\" x " + this.width + "\" x " + this.length + "' x " + this.numPieces + " pieces ("
-                + GradeToString() + ")";
-        }
-
-        private string GradeToString()
-        {
-            switch (this.grade)
-            {
-                case Grade.UNGRADED: return "Ungraded";
-                case Grade.ONE: return "#1";
-                case Grade.TWO: return "#2";
-                case Grade.THREE: return "#3";
-            }
-
-            return "Ungraded";
-        }
-
-        // Prohibits non-numeric input for the number of pieces TextBox
-
-        private static readonly Regex _regex = new("[^0-9]+");
-
-        private void NumberOnly_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            e.Handled = _regex.IsMatch(e.Text);
-        }
-
-        private void NumberOnly_Pasting(object sender, DataObjectPastingEventArgs e)
-        {
-            if (e.DataObject.GetDataPresent(typeof(string)))
-            {
-                string text = (string)e.DataObject.GetData(typeof(string));
-
-                if (_regex.IsMatch(text))
-                    e.CancelCommand();
-            }
-            else
-            {
-                e.CancelCommand();
-            }
+            Entry_Description.Text = CurrentBatch.getThickness() + "\" x " + CurrentBatch.getWidth() + "\" x " 
+                + CurrentBatch.getLength() + "' x " + CurrentBatch.getNumPieces() + " pieces ("
+                + CurrentBatch.getGrade() + ")";
         }
 
         // Cancel the entry
@@ -100,10 +53,50 @@ namespace Spruce_Wood_Loggers_ERP
         // Save the entry to the database
         private void Confirm_Button_Click(object sender, RoutedEventArgs e)
         {
-            Batch currBatch = new Batch(DateTime.Now, this.thickness, this.width, this.length, GradeToString(), this.numPieces);
+            Batch currBatch = new Batch(DateTime.Now, CurrentBatch.getThickness(), 
+                CurrentBatch.getWidth(), CurrentBatch.getLength(), CurrentBatch.getGrade(), CurrentBatch.getNumPieces());
             BatchPersistence.SaveBatch(currBatch);
-            Owner.Opacity = 1;
             this.Close();
+        }
+
+        private void Ungraded_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Ungraded_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedSecondaryButton");
+            Grade1_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedButton");
+            Grade2_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedButton");
+            Grade3_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedButton");
+            CurrentBatch.setGrade(Grade.UNGRADED);
+            SetEntryText();
+        }
+
+        private void Grade1_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Grade1_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedSecondaryButton");
+            Ungraded_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedButton");
+            Grade2_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedButton");
+            Grade3_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedButton");
+            CurrentBatch.setGrade(Grade.ONE);
+            SetEntryText();
+        }
+
+        private void Grade2_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Grade2_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedSecondaryButton");
+            Ungraded_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedButton");
+            Grade1_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedButton");
+            Grade3_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedButton");
+            CurrentBatch.setGrade(Grade.TWO);
+            SetEntryText();
+        }
+
+        private void Grade3_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Grade3_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedSecondaryButton");
+            Ungraded_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedButton");
+            Grade1_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedButton");
+            Grade2_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedButton");
+            CurrentBatch.setGrade(Grade.THREE);
+            SetEntryText();
         }
     }
 }

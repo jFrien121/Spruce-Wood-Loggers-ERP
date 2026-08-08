@@ -157,12 +157,12 @@ namespace Spruce_Wood_Loggers_ERP
         {
             var button = sender as DimensionButton;
 
-            //var entryConfirmation = new EntryConfirmation(button.CutThickness, button.CutWidth, button.CutLength)
-            //{
-            //    Owner = this
-            //};
+            CurrentBatch.InitializeBatch();
+            CurrentBatch.setThickness(button!.CutThickness);
+            CurrentBatch.setWidth(button!.CutWidth);
+            CurrentBatch.setLength(button!.CutLength);
 
-            var pieceSelection = new PieceSelectionWindow(button.CutThickness, button.CutWidth)
+            var pieceSelection = new PieceSelectionWindow()
             {
                 Owner = this
             };
@@ -170,6 +170,33 @@ namespace Spruce_Wood_Loggers_ERP
             this.Opacity = 0.6; // Dim the main window while the entry confirmation is open
 
             pieceSelection.ShowDialog();
+
+            // If a custom number of pieces was selected, open the custom height and width windows
+            if (pieceSelection.DialogResult == false)
+            {
+                var customHeightWindow = new CustomHeightWindow()
+                {
+                    Owner = this
+                };
+
+                customHeightWindow.ShowDialog();
+
+                var customWidthWindow = new CustomWidthWindow()
+                {
+                    Owner = this
+                };
+
+                customWidthWindow.ShowDialog();
+            }
+
+            var entryConfirmationWindow = new EntryConfirmation()
+            {
+                Owner = this
+            };
+
+            entryConfirmationWindow.ShowDialog();
+
+            this.Opacity = 1;
         }
 
         // Print a daily report

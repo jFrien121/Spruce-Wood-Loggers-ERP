@@ -13,37 +13,29 @@ using System.Windows.Shapes;
 namespace Spruce_Wood_Loggers_ERP
 {
     /// <summary>
-    /// Interaction logic for PieceSelectionWindow.xaml
+    /// Interaction logic for CustomHeightWindow.xaml
     /// </summary>
-    public partial class PieceSelectionWindow : Window
+    public partial class CustomHeightWindow : Window
     {
-
-        public PieceSelectionWindow()
+        public CustomHeightWindow()
         {
             InitializeComponent();
         }
 
-        private void NumberPiecesClose_Button_Click(object sender, RoutedEventArgs e)
+        private void PiecesTallClose_Button_Click(object sender, RoutedEventArgs e)
         {
             Owner.Opacity = 1;
             this.Close();
         }
 
-        private void SelectCustomNumber_Button_Click(object sender, RoutedEventArgs e)
-        {
-            DialogResult = false;
-            this.Close();
-        }
-
-        private void PieceNumberButton_Click(object sender, RoutedEventArgs e)
+        private void HeightButton_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
             var textBlock = button!.Content as TextBlock;
 
-            int numPieces = int.Parse(textBlock!.Text);
+            int height = int.Parse(textBlock!.Text);
 
-            CurrentBatch.setNumPieces(numPieces);
-            DialogResult = true;
+            CurrentBatch.setLiftHeight(height);
             this.Close();
         }
     }
