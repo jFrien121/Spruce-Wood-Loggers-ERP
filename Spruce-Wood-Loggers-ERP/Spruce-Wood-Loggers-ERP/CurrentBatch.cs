@@ -9,10 +9,12 @@ namespace Spruce_Wood_Loggers_ERP
         private static Batch currentBatch;
         private static int batchLiftHeight;
         private static int batchLiftWidth;
+        public static bool customPieceNumber;
 
         public static void InitializeBatch()
         {
             currentBatch = new Batch();
+            customPieceNumber = false;
         }
 
         public static void setThickness(double thickness)
@@ -43,17 +45,13 @@ namespace Spruce_Wood_Loggers_ERP
         public static void setLiftHeight(int height)
         {
             batchLiftHeight = height;
+            customPieceNumber = true;
         }
 
         public static void setLiftWidth(int width)
         {
             batchLiftWidth = width;
-            setNumPieces(batchLiftHeight * batchLiftWidth);
-        }
-
-        public static void setTimeProcessed(DateTime timeProcessed)
-        {
-            currentBatch.timeProcessed = timeProcessed;
+            customPieceNumber = true;
         }
 
         private static string GradeToString(Grade grade)
@@ -89,8 +87,23 @@ namespace Spruce_Wood_Loggers_ERP
             return currentBatch.grade;
         }
 
+        public static string getLiftHeight()
+        {
+            return batchLiftHeight.ToString();
+        }
+
+        public static string getLiftWidth()
+        {
+            return batchLiftWidth.ToString();
+        }
+
         public static int getNumPieces()
         {
+            if (customPieceNumber)
+            {
+                return batchLiftHeight * batchLiftWidth;
+            }
+
             return currentBatch.numPieces;
         }
     }

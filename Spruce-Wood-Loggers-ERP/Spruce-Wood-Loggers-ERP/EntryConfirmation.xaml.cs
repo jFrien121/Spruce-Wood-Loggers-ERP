@@ -38,9 +38,16 @@ namespace Spruce_Wood_Loggers_ERP
 
         private void SetEntryText()
         {
+
             Entry_Description.Text = CurrentBatch.getThickness() + "\" x " + CurrentBatch.getWidth() + "\" x " 
                 + CurrentBatch.getLength() + "' x " + CurrentBatch.getNumPieces() + " pieces ("
-                + CurrentBatch.getGrade() + ")";
+                + CurrentBatch.getGrade() + ")\n";
+
+            if (CurrentBatch.customPieceNumber)
+            {
+                Entry_Description.Inlines.Add(new Run("Lift Height x Width: " + CurrentBatch.getLiftHeight() 
+                    + " x " + CurrentBatch.getLiftWidth()) { FontStyle = FontStyles.Italic });
+            }
         }
 
         // Cancel the entry
@@ -53,9 +60,11 @@ namespace Spruce_Wood_Loggers_ERP
         // Save the entry to the database
         private void Confirm_Button_Click(object sender, RoutedEventArgs e)
         {
+            this.Owner.Opacity = 1;
             Batch currBatch = new Batch(DateTime.Now, CurrentBatch.getThickness(), 
                 CurrentBatch.getWidth(), CurrentBatch.getLength(), CurrentBatch.getGrade(), CurrentBatch.getNumPieces());
             BatchPersistence.SaveBatch(currBatch);
+            
             this.Close();
         }
 

@@ -1,4 +1,5 @@
 ﻿using MaterialDesignThemes.Wpf;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using System.Diagnostics.SymbolStore;
 using System.Reflection.Metadata;
@@ -38,7 +39,7 @@ namespace Spruce_Wood_Loggers_ERP
             // Ensure the database is created
             using (var db = new AppDbContext())
             {
-                db.Database.EnsureCreated();
+                db.Database.Migrate();
             }
 
             initGrid();
@@ -196,7 +197,7 @@ namespace Spruce_Wood_Loggers_ERP
 
             entryConfirmationWindow.ShowDialog();
 
-            this.Opacity = 1;
+            
         }
 
         // Print a daily report
