@@ -36,6 +36,23 @@ namespace Spruce_Wood_Loggers_ERP
             modelBuilder.Entity<Batch>()
                 .Property(x => x.timeProcessed)
                 .HasColumnType("timestamp without time zone");
+
+            // Ensure uniqueness for certain fields
+            modelBuilder.Entity<CutLength>()
+                .HasIndex(l => l.length)
+                .IsUnique();
+
+            modelBuilder.Entity<CutSize>()
+                .HasIndex(s => new { s.thickness, s.width})
+                .IsUnique();
+
+            modelBuilder.Entity<StandardNumPieces>()
+                .HasIndex(s => s.numPieces)
+                .IsUnique();
+
+            modelBuilder.Entity<StandardSizeRelationship>()
+                .HasIndex(s => new { s.StandardNumPiecesId, s.CutSizeId })
+                .IsUnique();
         }
     }
 }

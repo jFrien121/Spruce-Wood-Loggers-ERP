@@ -38,88 +38,93 @@
 
 		<StackPanel VerticalAlignment="Center">
 
-		<TextBlock 
+			<TextBlock 
 			Text="Pieces Wide" 
 			HorizontalAlignment="Center" 
 			Margin="0,0,0,25" 
 			FontWeight="Bold" 
 			FontSize="30"/>
 
-		<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
 				<Button
-				Margin="3px"
-				materialDesign:ButtonAssist.CornerRadius="5"
-				IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-				Style="{StaticResource MaterialDesignRaisedButton}"
-				Padding="2px"
-				Height="65px"
-				Width="80px" Click="WidthButton_Click">
+					Margin="3px"
+					materialDesign:ButtonAssist.CornerRadius="5"
+					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+					Style="{StaticResource MaterialDesignRaisedButton}"
+					Padding="2px"
+					Height="65px"
+					Width="80px" 
+					Click="WidthButton_Click">
 					<TextBlock
-					Text="6"
-					FontSize="25px"
-					TextWrapping="Wrap"
-					TextAlignment="Center"
-					Foreground="White"/>
+						Text="6"
+						FontSize="25px"
+						TextWrapping="Wrap"
+						TextAlignment="Center"
+						Foreground="White"/>
 				</Button>
 				<Button
-				Margin="3px"
-				materialDesign:ButtonAssist.CornerRadius="5"
-				IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-				Style="{StaticResource MaterialDesignRaisedButton}"
-				Padding="2px"
-				Height="65px"
-				Width="80px" Click="WidthButton_Click">
+					Margin="3px"
+					materialDesign:ButtonAssist.CornerRadius="5"
+					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+					Style="{StaticResource MaterialDesignRaisedButton}"
+					Padding="2px"
+					Height="65px"
+					Width="80px" 
+					Click="WidthButton_Click">
 					<TextBlock
-					Text="7"
-					FontSize="25px"
-					TextWrapping="Wrap"
-					TextAlignment="Center"
-					Foreground="White"/>
+						Text="7"
+						FontSize="25px"
+						TextWrapping="Wrap"
+						TextAlignment="Center"
+						Foreground="White"/>
 				</Button>
 				<Button
-				Margin="3px"
-				materialDesign:ButtonAssist.CornerRadius="5"
-				IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-				Style="{StaticResource MaterialDesignRaisedButton}"
-				Padding="2px"
-				Height="65px"
-				Width="80px" Click="WidthButton_Click">
+					Margin="3px"
+					materialDesign:ButtonAssist.CornerRadius="5"
+					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+					Style="{StaticResource MaterialDesignRaisedButton}"
+					Padding="2px"
+					Height="65px"
+					Width="80px" 
+					Click="WidthButton_Click">
 					<TextBlock
-					Text="8"
-					FontSize="25px"
-					TextWrapping="Wrap"
-					TextAlignment="Center"
-					Foreground="White"/>
+						Text="8"
+						FontSize="25px"
+						TextWrapping="Wrap"
+						TextAlignment="Center"
+						Foreground="White"/>
 				</Button>
 				<Button
-				Margin="3px"
-				materialDesign:ButtonAssist.CornerRadius="5"
-				IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-				Style="{StaticResource MaterialDesignRaisedButton}"
-				Padding="2px"
-				Height="65px"
-				Width="80px" Click="WidthButton_Click">
+					Margin="3px"
+					materialDesign:ButtonAssist.CornerRadius="5"
+					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+					Style="{StaticResource MaterialDesignRaisedButton}"
+					Padding="2px"
+					Height="65px"
+					Width="80px"
+					Click="WidthButton_Click">
 					<TextBlock
-					Text="9"
-					FontSize="25px"
-					TextWrapping="Wrap"
-					TextAlignment="Center"
-					Foreground="White"/>
+						Text="9"
+						FontSize="25px"
+						TextWrapping="Wrap"
+						TextAlignment="Center"
+						Foreground="White"/>
 				</Button>
 				<Button
-				Margin="3px"
-				materialDesign:ButtonAssist.CornerRadius="5"
-				IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-				Style="{StaticResource MaterialDesignRaisedButton}"
-				Padding="2px"
-				Height="65px"
-				Width="80px" Click="WidthButton_Click">
+					Margin="3px"
+					materialDesign:ButtonAssist.CornerRadius="5"
+					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+					Style="{StaticResource MaterialDesignRaisedButton}"
+					Padding="2px"
+					Height="65px"
+					Width="80px" 
+					Click="WidthButton_Click">
 					<TextBlock
-					Text="10"
-					FontSize="25px"
-					TextWrapping="Wrap"
-					TextAlignment="Center"
-					Foreground="White"/>
+						Text="10"
+						FontSize="25px"
+						TextWrapping="Wrap"
+						TextAlignment="Center"
+						Foreground="White"/>
 				</Button>
 			</StackPanel>
 
@@ -131,14 +136,15 @@
 					Style="{StaticResource MaterialDesignRaisedButton}"
 					Padding="2px"
 					Height="65px"
-					Width="80px" Click="WidthButton_Click">
+					Width="80px" 
+					Click="WidthButton_Click">
 					<TextBlock
 						Text="11"
 						FontSize="25px"
 						TextWrapping="Wrap"
 						TextAlignment="Center"
 						Foreground="White"/>
-						</Button>
+				</Button>
 				<Button
 					Margin="3px"
 					materialDesign:ButtonAssist.CornerRadius="5"
@@ -146,7 +152,8 @@
 					Style="{StaticResource MaterialDesignRaisedButton}"
 					Padding="2px"
 					Height="65px"
-					Width="80px" Click="WidthButton_Click">
+					Width="80px" 
+					Click="WidthButton_Click">
 					<TextBlock
 						Text="12"
 						FontSize="25px"
@@ -161,7 +168,8 @@
 					Style="{StaticResource MaterialDesignRaisedButton}"
 					Padding="2px"
 					Height="65px"
-					Width="80px" Click="WidthButton_Click">
+					Width="80px" 
+					Click="WidthButton_Click">
 					<TextBlock
 						Text="13"
 						FontSize="25px"
@@ -176,7 +184,8 @@
 					Style="{StaticResource MaterialDesignRaisedButton}"
 					Padding="2px"
 					Height="65px"
-					Width="80px" Click="WidthButton_Click">
+					Width="80px" 
+					Click="WidthButton_Click">
 					<TextBlock
 						Text="14"
 						FontSize="25px"
@@ -191,7 +200,8 @@
 					Style="{StaticResource MaterialDesignRaisedButton}"
 					Padding="2px"
 					Height="65px"
-					Width="80px" Click="WidthButton_Click">
+					Width="80px" 
+					Click="WidthButton_Click">
 					<TextBlock
 						Text="15"
 						FontSize="25px"
@@ -201,6 +211,5 @@
 				</Button>
 			</StackPanel>
 		</StackPanel>
-
 	</Grid>
 </Window>

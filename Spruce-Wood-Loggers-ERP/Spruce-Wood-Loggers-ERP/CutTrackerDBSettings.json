@@ -1,0 +1,6 @@
+{
+  "ipAddress": "localhost",
+  "port": 5432,
+  "username": "CutTrackerUser",
+  "password": "123"
+}

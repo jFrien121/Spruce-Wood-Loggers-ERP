@@ -8,6 +8,8 @@ namespace Spruce_Wood_Loggers_ERP.Database_Objects
     {
         public int id { get; set; } // primary key
         public int StandardNumPiecesId { get; set; } // foreign key to StandardSize
+        public StandardNumPieces StandardNumPieces { get; set; } // navigation property to StandardSize
         public int CutSizeId { get; set; } // foreign key to Size
+        public CutSize CutSize { get; set; } // navigation property to Size
     }
 }
