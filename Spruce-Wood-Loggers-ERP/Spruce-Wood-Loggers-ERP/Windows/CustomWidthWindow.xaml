@@ -7,8 +7,8 @@
 		xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
 		mc:Ignorable="d"
 		WindowStartupLocation="CenterOwner"
-        Title="CustomWidthWindow" Height="310" Width="500">
-	
+        Title="CustomWidthWindow" Height="360" Width="640">
+
 	<WindowChrome.WindowChrome>
 		<WindowChrome
         CaptionHeight="0"
@@ -16,37 +16,37 @@
         CornerRadius="0"
         GlassFrameThickness="0"/>
 	</WindowChrome.WindowChrome>
+	<Border BorderBrush="LightGray"
+        BorderThickness="2">
 
-	<Grid>
-
-		<Button x:Name="PiecesWideClose_Button"
+		<Viewbox Stretch="Uniform">
+			<Grid>
+				<Button x:Name="PiecesWideClose_Button"
 				HorizontalAlignment="Right" 
 				Background="Transparent" 
 				VerticalAlignment="Top" 
 				Padding="0,0" 
 				BorderBrush="Transparent" 
-				Height="50" 
-				Margin="0,5,5,0"
+				Height="50"
 				Click="PiecesWideClose_Button_Click">
-			<materialDesign:PackIcon Kind="Close" 
+					<materialDesign:PackIcon Kind="Close" 
 							 HorizontalAlignment="Right" 
 							 Width="50" 
-							 Height="50" 
-							 Margin="0,0" 
+							 Height="50"
 							 Foreground="Gray"/>
-		</Button>
+				</Button>
 
-		<StackPanel VerticalAlignment="Center">
+				<StackPanel VerticalAlignment="Center" Margin="20,10,20,5">
 
-			<TextBlock 
+					<TextBlock 
 			Text="Pieces Wide" 
 			HorizontalAlignment="Center" 
 			Margin="0,0,0,25" 
 			FontWeight="Bold" 
 			FontSize="30"/>
 
-			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-				<Button
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+						<Button
 					Margin="3px"
 					materialDesign:ButtonAssist.CornerRadius="5"
 					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -55,14 +55,14 @@
 					Height="65px"
 					Width="80px" 
 					Click="WidthButton_Click">
-					<TextBlock
+							<TextBlock
 						Text="6"
 						FontSize="25px"
 						TextWrapping="Wrap"
 						TextAlignment="Center"
 						Foreground="White"/>
-				</Button>
-				<Button
+						</Button>
+						<Button
 					Margin="3px"
 					materialDesign:ButtonAssist.CornerRadius="5"
 					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -71,14 +71,14 @@
 					Height="65px"
 					Width="80px" 
 					Click="WidthButton_Click">
-					<TextBlock
+							<TextBlock
 						Text="7"
 						FontSize="25px"
 						TextWrapping="Wrap"
 						TextAlignment="Center"
 						Foreground="White"/>
-				</Button>
-				<Button
+						</Button>
+						<Button
 					Margin="3px"
 					materialDesign:ButtonAssist.CornerRadius="5"
 					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -87,14 +87,14 @@
 					Height="65px"
 					Width="80px" 
 					Click="WidthButton_Click">
-					<TextBlock
+							<TextBlock
 						Text="8"
 						FontSize="25px"
 						TextWrapping="Wrap"
 						TextAlignment="Center"
 						Foreground="White"/>
-				</Button>
-				<Button
+						</Button>
+						<Button
 					Margin="3px"
 					materialDesign:ButtonAssist.CornerRadius="5"
 					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -103,14 +103,14 @@
 					Height="65px"
 					Width="80px"
 					Click="WidthButton_Click">
-					<TextBlock
+							<TextBlock
 						Text="9"
 						FontSize="25px"
 						TextWrapping="Wrap"
 						TextAlignment="Center"
 						Foreground="White"/>
-				</Button>
-				<Button
+						</Button>
+						<Button
 					Margin="3px"
 					materialDesign:ButtonAssist.CornerRadius="5"
 					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -119,17 +119,17 @@
 					Height="65px"
 					Width="80px" 
 					Click="WidthButton_Click">
-					<TextBlock
+							<TextBlock
 						Text="10"
 						FontSize="25px"
 						TextWrapping="Wrap"
 						TextAlignment="Center"
 						Foreground="White"/>
-				</Button>
-			</StackPanel>
+						</Button>
+					</StackPanel>
 
-			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15">
-				<Button
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15">
+						<Button
 					Margin="3px"
 					materialDesign:ButtonAssist.CornerRadius="5"
 					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -138,14 +138,14 @@
 					Height="65px"
 					Width="80px" 
 					Click="WidthButton_Click">
-					<TextBlock
+							<TextBlock
 						Text="11"
 						FontSize="25px"
 						TextWrapping="Wrap"
 						TextAlignment="Center"
 						Foreground="White"/>
-				</Button>
-				<Button
+						</Button>
+						<Button
 					Margin="3px"
 					materialDesign:ButtonAssist.CornerRadius="5"
 					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -154,14 +154,14 @@
 					Height="65px"
 					Width="80px" 
 					Click="WidthButton_Click">
-					<TextBlock
+							<TextBlock
 						Text="12"
 						FontSize="25px"
 						TextWrapping="Wrap"
 						TextAlignment="Center"
 						Foreground="White"/>
-				</Button>
-				<Button
+						</Button>
+						<Button
 					Margin="3px"
 					materialDesign:ButtonAssist.CornerRadius="5"
 					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -170,14 +170,14 @@
 					Height="65px"
 					Width="80px" 
 					Click="WidthButton_Click">
-					<TextBlock
+							<TextBlock
 						Text="13"
 						FontSize="25px"
 						TextWrapping="Wrap"
 						TextAlignment="Center"
 						Foreground="White"/>
-				</Button>
-				<Button
+						</Button>
+						<Button
 					Margin="3px"
 					materialDesign:ButtonAssist.CornerRadius="5"
 					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -186,14 +186,14 @@
 					Height="65px"
 					Width="80px" 
 					Click="WidthButton_Click">
-					<TextBlock
+							<TextBlock
 						Text="14"
 						FontSize="25px"
 						TextWrapping="Wrap"
 						TextAlignment="Center"
 						Foreground="White"/>
-				</Button>
-				<Button
+						</Button>
+						<Button
 					Margin="3px"
 					materialDesign:ButtonAssist.CornerRadius="5"
 					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -202,14 +202,16 @@
 					Height="65px"
 					Width="80px" 
 					Click="WidthButton_Click">
-					<TextBlock
+							<TextBlock
 						Text="15"
 						FontSize="25px"
 						TextWrapping="Wrap"
 						TextAlignment="Center"
 						Foreground="White"/>
-				</Button>
-			</StackPanel>
-		</StackPanel>
-	</Grid>
+						</Button>
+					</StackPanel>
+				</StackPanel>
+			</Grid>
+		</Viewbox>
+	</Border>
 </Window>

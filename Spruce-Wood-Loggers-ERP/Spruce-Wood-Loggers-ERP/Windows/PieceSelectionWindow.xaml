@@ -7,7 +7,7 @@
 		xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
 		WindowStartupLocation="CenterOwner"
-        Title="PieceSelectionWindow" Height="310" Width="800">
+        Title="PieceSelectionWindow" Height="300" Width="800">
 
 	<WindowChrome.WindowChrome>
 		<WindowChrome
@@ -16,41 +16,41 @@
         CornerRadius="0"
         GlassFrameThickness="0"/>
 	</WindowChrome.WindowChrome>
-
-	<Grid>
-		<Button x:Name="NumberPiecesClose_Button"
+	<Border BorderBrush="LightGray"
+        BorderThickness="2">
+		<Viewbox Stretch="Uniform">
+			<Grid>
+				<Button x:Name="NumberPiecesClose_Button"
 			HorizontalAlignment="Right" 
 			Background="Transparent" 
 			VerticalAlignment="Top" 
 			Padding="0,0" 
 			BorderBrush="Transparent" 
 			Height="50" 
-			Margin="0,5,5,0"
 			Click="NumberPiecesClose_Button_Click">
-			<materialDesign:PackIcon Kind="Close" 
+					<materialDesign:PackIcon Kind="Close" 
 									 HorizontalAlignment="Right" 
 									 Width="50" 
 									 Height="50" 
-									 Margin="0,0" 
 									 Foreground="Gray"/>
-		</Button>
+				</Button>
 
-		<StackPanel VerticalAlignment="Center">
+				<StackPanel VerticalAlignment="Center" Margin="5,0,5,10">
 
-			<TextBlock 
+					<TextBlock 
 				Text="Number of Pieces" 
 				HorizontalAlignment="Center" 
-				Margin="0,0,0,5" 
+				Margin="0,5,0,5" 
 				FontWeight="Bold" 
 				FontSize="30"></TextBlock>
 
-			<StackPanel
+					<StackPanel
 				Margin="20"
 				Orientation="Horizontal"
 				VerticalAlignment="Center"
 				HorizontalAlignment="Center">
 
-				<Button
+						<Button
 					Margin="3px"
 					materialDesign:ButtonAssist.CornerRadius="5"
 					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -58,14 +58,14 @@
 					Padding="2px"
 					Height="65px"
 					Width="80px" Click="PieceNumberButton_Click">
-					<TextBlock
+							<TextBlock
 						Text="64"
 						FontSize="25px"
 						TextWrapping="Wrap"
 						TextAlignment="Center"
 						Foreground="White"/>
-				</Button>
-				<Button
+						</Button>
+						<Button
 					Margin="3px"
 					materialDesign:ButtonAssist.CornerRadius="5"
 					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -74,14 +74,14 @@
 					Height="65px"
 					Width="80px"
 					Click="PieceNumberButton_Click">
-					<TextBlock
+							<TextBlock
 						Text="96"
 						FontSize="25px"
 						TextWrapping="Wrap"
 						TextAlignment="Center"
 						Foreground="White"/>
-				</Button>
-				<Button
+						</Button>
+						<Button
 					Margin="3px"
 					materialDesign:ButtonAssist.CornerRadius="5"
 					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -90,14 +90,14 @@
 					Height="65px"
 					Width="80px"
 					Click="PieceNumberButton_Click">
-					<TextBlock
+							<TextBlock
 						Text="120"
 						FontSize="25"
 						TextWrapping="Wrap"
 						TextAlignment="Center"
 						Foreground="White"/>
-				</Button>
-				<Button
+						</Button>
+						<Button
 					Margin="3px"
 					materialDesign:ButtonAssist.CornerRadius="5"
 					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -106,14 +106,14 @@
 					Height="65px"
 					Width="80px"
 					Click="PieceNumberButton_Click">
-					<TextBlock
+							<TextBlock
 						Text="180"
 						FontSize="25px"
 						TextWrapping="Wrap"
 						TextAlignment="Center"
 						Foreground="White"/>
-				</Button>
-				<Button
+						</Button>
+						<Button
 					Margin="3px"
 					materialDesign:ButtonAssist.CornerRadius="5"
 					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -122,14 +122,14 @@
 					Height="65px"
 					Width="80px"
 					Click="PieceNumberButton_Click">
-					<TextBlock
+							<TextBlock
 						Text="192"
 						FontSize="25px"
 						TextWrapping="Wrap"
 						TextAlignment="Center"
 						Foreground="White"/>
-				</Button>
-				<Button
+						</Button>
+						<Button
 					Margin="3px"
 					materialDesign:ButtonAssist.CornerRadius="5"
 					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -138,14 +138,14 @@
 					Height="65px"
 					Width="80px"
 					Click="PieceNumberButton_Click">
-					<TextBlock
+							<TextBlock
 						Text="225"
 						FontSize="25px"
 						TextWrapping="Wrap"
 						TextAlignment="Center"
 						Foreground="White"/>
-				</Button>
-				<Button
+						</Button>
+						<Button
 					Margin="3px"
 					materialDesign:ButtonAssist.CornerRadius="5"
 					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -154,14 +154,14 @@
 					Height="65px"
 					Width="80px"
 					Click="PieceNumberButton_Click">
-					<TextBlock
+							<TextBlock
 						Text="240"
 						FontSize="25px"
 						TextWrapping="Wrap"
 						TextAlignment="Center"
 						Foreground="White"/>
-				</Button>
-				<Button
+						</Button>
+						<Button
 					Margin="3px"
 					materialDesign:ButtonAssist.CornerRadius="5"
 					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -170,17 +170,17 @@
 					Height="65px"
 					Width="80px"
 					Click="PieceNumberButton_Click">
-					<TextBlock
+							<TextBlock
 						Text="360"
 						FontSize="25px"
 						TextWrapping="Wrap"
 						TextAlignment="Center"
 						Foreground="White"/>
-				</Button>
+						</Button>
 
-			</StackPanel>
+					</StackPanel>
 
-			<Button x:Name="SelectCustomNumber_Button"
+					<Button x:Name="SelectCustomNumber_Button"
 					Margin="10px"
 					materialDesign:ButtonAssist.CornerRadius="5"
 					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -189,13 +189,15 @@
 					Height="65"
 					Width="300px"
 					Click="SelectCustomNumber_Button_Click">
-				<TextBlock
+						<TextBlock
 					Text="Select Custom Number"
 					FontSize="25px"
 					TextWrapping="Wrap"
 					TextAlignment="Center"
 					Foreground="White"/>
-			</Button>
-		</StackPanel>
-	</Grid>
+					</Button>
+				</StackPanel>
+			</Grid>
+		</Viewbox>
+	</Border>
 </Window>

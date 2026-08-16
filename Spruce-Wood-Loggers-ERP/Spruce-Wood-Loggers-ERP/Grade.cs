@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Spruce_Wood_Loggers_ERP
 {
-    internal enum Grade
+    public enum Grade
     {
 
         UNGRADED,

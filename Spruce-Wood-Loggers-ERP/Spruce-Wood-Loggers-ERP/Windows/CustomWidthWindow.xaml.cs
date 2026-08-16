@@ -17,6 +17,8 @@ namespace Spruce_Wood_Loggers_ERP
     /// </summary>
     public partial class CustomWidthWindow : Window
     {
+        private int selectedWidth;
+
         public CustomWidthWindow()
         {
             InitializeComponent();
@@ -24,7 +26,7 @@ namespace Spruce_Wood_Loggers_ERP
 
         private void PiecesWideClose_Button_Click(object sender, RoutedEventArgs e)
         {
-            Owner.Opacity = 1;
+            this.DialogResult = false;
             this.Close();
         }
 
@@ -33,10 +35,14 @@ namespace Spruce_Wood_Loggers_ERP
             var button = sender as Button;
             var textBlock = button!.Content as TextBlock;
 
-            int liftWidth = int.Parse(textBlock!.Text);
-
-            CurrentBatch.setLiftWidth(liftWidth);
+            this.selectedWidth = int.Parse(textBlock!.Text);
+            this.DialogResult = true;
             this.Close();
+        }
+
+        public int getSelectedWidth()
+        {
+            return selectedWidth;
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using MaterialDesignThemes.Wpf;
 using Microsoft.EntityFrameworkCore;
+using Spruce_Wood_Loggers_ERP.Database_Objects;
+using Spruce_Wood_Loggers_ERP.Persistence;
 using System.Diagnostics;
 using System.Diagnostics.SymbolStore;
 using System.Reflection.Metadata;
@@ -28,40 +30,32 @@ namespace Spruce_Wood_Loggers_ERP
     public partial class Spruce_Wood_Loggers_Cut_Tracker : Window
     {
 
-        static List<double> widths = [3, 4, 6, 8, 10];
-        static List<double> thicknesses = [1, 2, 3, 4];
-        static List<double> lengths = [4, 4.5, 6, 7, 8, 9, 10, 12, 14, 16];
-
         public Spruce_Wood_Loggers_Cut_Tracker()
         {
             InitializeComponent();
+            WindowState = WindowState.Maximized;
+            ResizeMode = ResizeMode.NoResize;
+            Topmost = true;
 
-            // Ensure the database is created
-            using (var db = new AppDbContext())
-            {
-                db.Database.Migrate();
-            }
-
-            initGrid();
+            // Ensure database is created
+            PersistenceSetUp.ConnectToDatabase();
         }
 
         // Dynamically create a grid with headers, and rows and
         // columns of buttons for each dimension combination
-        public void initGrid()
+        private void InitGrid(List<double> cutLengths, List<CutSize> cutSizes)
         {
-            int numColumns = widths.Count * thicknesses.Count();
+            //int numColumns = widths.Count * thicknesses.Count();
 
-            for (int i = 0; i < numColumns; i++)
+            for (int i = 0; i < cutSizes.Count; i++)
             {
                 ColumnDefinition newCol = new ColumnDefinition();
                 MainGrid.ColumnDefinitions.Add(newCol);
 
-                double thicknessIndex = i / widths.Count();
-
                 // Set up each column header
                 TextBlock header = new TextBlock
                 {
-                    Text = $"{thicknesses[(int)Math.Floor(thicknessIndex)]}\" x {widths[i % widths.Count]}\"",
+                    Text = $"{cutSizes.ElementAt(i).thickness}\" x {cutSizes.ElementAt(i).width}\"",
                     FontSize = 10,
                     TextAlignment = TextAlignment.Center,
                     Foreground = Brushes.White
@@ -75,7 +69,7 @@ namespace Spruce_Wood_Loggers_ERP
                 MainGrid.Children.Add(header);
             }
 
-            for (int i = 0; i < lengths.Count; i++)
+            for (int i = 0; i < cutLengths.Count; i++)
             {
                 RowDefinition newRow = new RowDefinition();
                 MainGrid.RowDefinitions.Add(newRow);
@@ -83,7 +77,7 @@ namespace Spruce_Wood_Loggers_ERP
                 // Set up each row header
                 TextBlock header = new TextBlock
                 {
-                    Text = $"{lengths[i]}'",
+                    Text = $"{cutLengths[i]}'",
                     FontSize = 10,
                     VerticalAlignment = VerticalAlignment.Center,
                     TextAlignment = TextAlignment.Right,
@@ -98,14 +92,16 @@ namespace Spruce_Wood_Loggers_ERP
                 MainGrid.Children.Add(header);
             }
 
+            bool isLightTheme = true;
+
             // Initialize grid of buttons
-            for (int i = 0; i < lengths.Count; i++)
+            for (int i = 0; i < cutLengths.Count; i++)
             {
-                for (int j = 0; j < numColumns; j++)
+                for (int j = 0; j < cutSizes.Count; j++)
                 {
-                    double thickness = thicknesses[j / widths.Count()];
-                    double width = widths[j % widths.Count()];
-                    double length = lengths[i];
+                    double thickness = cutSizes.ElementAt(i).thickness;
+                    double width = cutSizes.ElementAt(i).width;
+                    double length = cutLengths[i];
 
                     // Set button settings
                     var button = new DimensionButton
@@ -123,19 +119,22 @@ namespace Spruce_Wood_Loggers_ERP
                     Grid.SetColumn(button, j + 1);
                     button.Click += GridButton_Click; // Set up event handler
 
-                    double thicknessIndex = j / widths.Count();
-
                     // Set style
-                    MaterialDesignThemes.Wpf.ButtonAssist.SetCornerRadius(button, new CornerRadius(5));
+                    ButtonAssist.SetCornerRadius(button, new CornerRadius(5));
 
-                    // Change colouring every thickness
-                    if (thicknessIndex % 2 == 0)
+                    // Alternate button colours for each thickness
+                    if (j != 0 && cutSizes.ElementAt(j).thickness != cutSizes.ElementAt(j - 1).thickness)
                     {
-                        button.Style = (System.Windows.Style)Application.Current.FindResource("MaterialDesignRaisedLightButton");
+                        isLightTheme = !isLightTheme;
+                    }
+
+                    if (isLightTheme)
+                    {
+                        button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedLightButton");
                     }
                     else
                     {
-                        button.Style = (System.Windows.Style)Application.Current.FindResource("MaterialDesignRaisedButton");
+                        button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedButton");
                     }
 
                     // Set up text
@@ -158,46 +157,61 @@ namespace Spruce_Wood_Loggers_ERP
         {
             var button = sender as DimensionButton;
 
-            CurrentBatch.InitializeBatch();
-            CurrentBatch.setThickness(button!.CutThickness);
-            CurrentBatch.setWidth(button!.CutWidth);
-            CurrentBatch.setLength(button!.CutLength);
+            int numPieces = 0;
+            int cutThickness = (int)button!.CutThickness;
+            int cutWidth = (int)button.CutWidth;
+            int cutLength = (int)button.CutLength;
+            int liftHeight = 0;
+            int liftWidth = 0;
 
             var pieceSelection = new PieceSelectionWindow()
             {
                 Owner = this
             };
 
-            this.Opacity = 0.6; // Dim the main window while the entry confirmation is open
-
             pieceSelection.ShowDialog();
 
-            // If a custom number of pieces was selected, open the custom height and width windows
-            if (pieceSelection.DialogResult == false)
+            var customHeightWindow = new CustomHeightWindow()
             {
-                var customHeightWindow = new CustomHeightWindow()
-                {
-                    Owner = this
-                };
-
-                customHeightWindow.ShowDialog();
-
-                var customWidthWindow = new CustomWidthWindow()
-                {
-                    Owner = this
-                };
-
-                customWidthWindow.ShowDialog();
-            }
-
-            var entryConfirmationWindow = new EntryConfirmation()
+                Owner = this
+            };
+            var customWidthWindow = new CustomWidthWindow()
             {
                 Owner = this
             };
 
-            entryConfirmationWindow.ShowDialog();
+            // If a custom number of pieces was selected, open the custom height and width windows
+            if (pieceSelection.getSelectCustomNumber())
+            {
+                customHeightWindow.ShowDialog();
 
+                if (customHeightWindow.DialogResult != false)
+                {
+                    liftHeight = customHeightWindow.getSelectedHeight();
+
+                    customWidthWindow.ShowDialog();
+
+                    if (customWidthWindow.DialogResult != false)
+                    {
+                        liftWidth = customWidthWindow.getSelectedWidth();
+                        numPieces = liftHeight * liftWidth;
+                    }
+                }
+            }
+            else
+            {
+                numPieces = pieceSelection.getNumPieces();
+            }
             
+            if ((pieceSelection.DialogResult == true && !pieceSelection.getSelectCustomNumber()) || customWidthWindow.DialogResult == true)
+            {
+                var entryConfirmationWindow = new EntryConfirmation(cutThickness, cutWidth, cutLength, numPieces, liftHeight, liftWidth, pieceSelection.getSelectCustomNumber())
+                {
+                    Owner = this
+                };
+
+                entryConfirmationWindow.ShowDialog();
+            }
         }
 
         // Print a daily report
@@ -214,6 +228,13 @@ namespace Spruce_Wood_Loggers_ERP
 
                 printDialog.PrintDocument(((IDocumentPaginatorSource)doc).DocumentPaginator, "Printing FlowDocument");
             }
+        }
+
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var cutLengths = await CutLengthPersistence.LoadCutLengths();
+            var cutSizes = await CutSizePersistence.LoadCutSizes();
+            InitGrid(cutLengths, cutSizes);
         }
     }
 }

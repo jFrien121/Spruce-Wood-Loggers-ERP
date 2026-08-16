@@ -8,24 +8,19 @@ VALUES
     (9),
 	(10),
     (12),
-	(14),
     (16)
 ON CONFLICT (length) DO NOTHING;
 
 INSERT INTO "CutSizes" (thickness, width)
 VALUES
-	(1,3),
 	(1,4),
 	(1,6),
-	(1,8),
-	(1,10),
 	(2,3),
 	(2,4),
 	(2,6),
 	(2,8),
 	(2,10),
 	(3,3),
-	(3,4),
 	(3,6),
 	(3,8),
 	(3,10),
@@ -35,8 +30,6 @@ VALUES
 	(4,10),
 	(8,8)
 ON CONFLICT (thickness, width) DO NOTHING;
-
-select * from "StandardNumPieces"
 
 INSERT INTO "StandardNumPieces" ("numPieces")
 VALUES

@@ -5,22 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Spruce_Wood_Loggers_ERP" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
 		mc:Ignorable="d"
-        Title="Spruce_Wood_Loggers_Cut_Tracker" Height="450" Width="800">
+        Title="Spruce_Wood_Loggers_Cut_Tracker" Height="1080" Width="1920" Loaded="Window_Loaded">
 	
 	<!-- Program is inside Viewbox to stretch properly -->
-	<materialDesign:DialogHost x:Name="MainDialogHost">
-		<Viewbox Stretch="Fill"  StretchDirection="Both">
-			<!-- Grid is set to default size to provide reference for stretching -->
-			<Grid x:Name="MainGrid" Width="800" Height="450" Background="White">
+	<Viewbox Stretch="Fill" x:Name="MainViewBox" StretchDirection="Both">
+		<!-- Grid is set to default size to provide reference for stretching -->
+		<Grid x:Name="MainGrid" Width="800" Height="450" Background="White">
 
-				<Grid.RowDefinitions>
-					<RowDefinition Height="Auto"/>
-				</Grid.RowDefinitions>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="Auto"/>
-				</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+			</Grid.ColumnDefinitions>
 
-				<!--<Image Source="C:\Users\Jocelyn\Documents\GitHub\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-Design-2.png"
+			<!--<Image Source="C:\Users\Jocelyn\Documents\GitHub\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-ERP\Spruce-Wood-Loggers-Design-2.png"
 						Stretch="Uniform"
 						Grid.Column="0"
 						Grid.Row="0"
@@ -29,7 +28,7 @@
 						VerticalAlignment="Bottom"
 						IsHitTestVisible="False"/>-->
 
-				<Button x:Name="Print_Button"
+			<Button x:Name="Print_Button"
 						Grid.Column="0" Grid.Row="0"
 						Content="Print"
 						Style="{StaticResource MaterialDesignRaisedButton}"
@@ -41,15 +40,15 @@
 						Width="20"
 						Click="Print_Button_Click"/>
 
-				<!-- Column and row header backgrounds -->
-				<Border Grid.Row="0" Grid.Column="1" 
+			<!-- Column and row header backgrounds -->
+			<Border Grid.Row="0" Grid.Column="1" 
 					Grid.ColumnSpan="20" 
 					Background="#2d684f"/>
-				<Border Grid.Column="0" Grid.Row="1" 
+			<Border Grid.Column="0" Grid.Row="1" 
 						Grid.RowSpan="10" 
 						Background="#2d684f"/>
 
-				<!--<Button Grid.Row="1" Grid.Column="1"
+			<!--<Button Grid.Row="1" Grid.Column="1"
 					Margin="3px"
 					materialDesign:ButtonAssist.CornerRadius="5"
 					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -65,7 +64,6 @@
 						Foreground="White"/>
 				</Button>-->
 
-			</Grid>
-		</Viewbox>
-	</materialDesign:DialogHost>
+		</Grid>
+	</Viewbox>
 </Window>

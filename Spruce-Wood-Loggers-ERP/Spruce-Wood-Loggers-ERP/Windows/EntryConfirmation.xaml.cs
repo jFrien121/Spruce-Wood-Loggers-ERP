@@ -29,42 +29,71 @@ namespace Spruce_Wood_Loggers_ERP
     public partial class EntryConfirmation : Window
     {
 
-        public EntryConfirmation()
+        private Grade grade;
+        private double thickness;
+        private double width;
+        private double length;
+        private int numPieces;
+        private bool customPieceNumber;
+        private int liftHeight;
+        private int liftWidth;
+
+        public EntryConfirmation(double thickness, double width, double length, int numPieces, int liftHeight, int liftWidth, bool customPieceNumber)
         {
             InitializeComponent();
-            CurrentBatch.setGrade(Grade.UNGRADED);
+
+            this.grade = Grade.UNGRADED;
+            this.thickness = thickness;
+            this.width = width;
+            this.length = length;
+            this.numPieces = numPieces;
+            this.liftHeight = liftHeight;
+            this.liftWidth = liftWidth;
+            this.customPieceNumber = customPieceNumber;
+
             SetEntryText();
         }
 
         private void SetEntryText()
         {
+            Entry_Description.Text = this.thickness + "\" x " + this.width + "\" x "
+                + this.length + "' x " + this.numPieces + " pieces ("
+                + GradeToString() + ")\n";
 
-            Entry_Description.Text = CurrentBatch.getThickness() + "\" x " + CurrentBatch.getWidth() + "\" x " 
-                + CurrentBatch.getLength() + "' x " + CurrentBatch.getNumPieces() + " pieces ("
-                + CurrentBatch.getGrade() + ")\n";
-
-            if (CurrentBatch.customPieceNumber)
+            if (this.customPieceNumber)
             {
-                Entry_Description.Inlines.Add(new Run("Lift Height x Width: " + CurrentBatch.getLiftHeight() 
-                    + " x " + CurrentBatch.getLiftWidth()) { FontStyle = FontStyles.Italic });
+                Entry_Description.Inlines.Add(new Run("Lift Height x Width: " + this.liftHeight
+                    + " x " + this.liftWidth)
+                { FontStyle = FontStyles.Italic });
             }
+        }
+
+        private string GradeToString()
+        {
+            switch (this.grade)
+            {
+                case Grade.UNGRADED: return "Ungraded";
+                case Grade.ONE: return "#1";
+                case Grade.TWO: return "#2";
+                case Grade.THREE: return "#3";
+            }
+
+            return "Ungraded";
         }
 
         // Cancel the entry
         private void Close_Button_Click(object sender, RoutedEventArgs e)
         {
-            Owner.Opacity = 1;
+            this.DialogResult = false;
             this.Close();
         }
 
         // Save the entry to the database
         private void Confirm_Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Owner.Opacity = 1;
-            Batch currBatch = new Batch(DateTime.Now, CurrentBatch.getThickness(), 
-                CurrentBatch.getWidth(), CurrentBatch.getLength(), CurrentBatch.getGrade(), CurrentBatch.getNumPieces());
+            Batch currBatch = new Batch(DateTime.Now, this.thickness,
+                this.width, this.length, GradeToString(), this.numPieces);
             BatchPersistence.SaveBatch(currBatch);
-            
             this.Close();
         }
 
@@ -74,7 +103,7 @@ namespace Spruce_Wood_Loggers_ERP
             Grade1_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedButton");
             Grade2_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedButton");
             Grade3_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedButton");
-            CurrentBatch.setGrade(Grade.UNGRADED);
+            this.grade = Grade.UNGRADED;
             SetEntryText();
         }
 
@@ -84,7 +113,7 @@ namespace Spruce_Wood_Loggers_ERP
             Ungraded_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedButton");
             Grade2_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedButton");
             Grade3_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedButton");
-            CurrentBatch.setGrade(Grade.ONE);
+            this.grade = Grade.ONE;
             SetEntryText();
         }
 
@@ -94,7 +123,7 @@ namespace Spruce_Wood_Loggers_ERP
             Ungraded_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedButton");
             Grade1_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedButton");
             Grade3_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedButton");
-            CurrentBatch.setGrade(Grade.TWO);
+            this.grade = Grade.TWO;
             SetEntryText();
         }
 
@@ -104,7 +133,7 @@ namespace Spruce_Wood_Loggers_ERP
             Ungraded_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedButton");
             Grade1_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedButton");
             Grade2_Button.Style = (Style)Application.Current.FindResource("MaterialDesignRaisedButton");
-            CurrentBatch.setGrade(Grade.THREE);
+            this.grade = Grade.THREE;
             SetEntryText();
         }
     }

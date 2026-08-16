@@ -18,20 +18,26 @@ namespace Spruce_Wood_Loggers_ERP
     public partial class PieceSelectionWindow : Window
     {
 
+        private int numPieces;
+        private bool selectCustomNumber;
+
         public PieceSelectionWindow()
         {
             InitializeComponent();
+
+            this.selectCustomNumber = false;
+            this.numPieces = 0;
         }
 
         private void NumberPiecesClose_Button_Click(object sender, RoutedEventArgs e)
         {
-            Owner.Opacity = 1;
+            DialogResult = false;
             this.Close();
         }
 
         private void SelectCustomNumber_Button_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = false;
+            this.selectCustomNumber = true;
             this.Close();
         }
 
@@ -40,11 +46,20 @@ namespace Spruce_Wood_Loggers_ERP
             var button = sender as Button;
             var textBlock = button!.Content as TextBlock;
 
-            int numPieces = int.Parse(textBlock!.Text);
-
-            CurrentBatch.setNumPieces(numPieces);
+            //int numPieces = int.Parse(textBlock!.Text);
+            this.numPieces = int.Parse(textBlock!.Text);
             DialogResult = true;
             this.Close();
+        }
+
+        public int getNumPieces()
+        {
+            return numPieces;
+        }
+
+        public bool getSelectCustomNumber()
+        {
+            return selectCustomNumber;
         }
     }
 }

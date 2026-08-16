@@ -7,7 +7,7 @@
 		xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
 		WindowStartupLocation="CenterOwner"
         mc:Ignorable="d"
-        Title="EntryConfirmation" Height="460" Width="710">
+        Title="EntryConfirmation" Height="480" Width="710">
 
 	<WindowChrome.WindowChrome>
 		<WindowChrome
@@ -17,145 +17,150 @@
             GlassFrameThickness="0"/>
 	</WindowChrome.WindowChrome>
 
-	<Grid x:Name="EntryConfirmation_Grid">
-		<StackPanel>
+	<Border BorderBrush="LightGray"
+        BorderThickness="2">
+		<Viewbox Stretch="Uniform">
+			<Grid x:Name="EntryConfirmation_Grid">
+				<StackPanel>
 
-			<!-- Grade options -->
-			<TextBlock 
-				Text="Grade" 
-				HorizontalAlignment="Center" 
-				Margin="0,20,0,5" 
-				FontWeight="Bold" 
-				FontSize="30"/>
-			
-			<StackPanel
-					Margin="20"
-					Orientation="Horizontal"
-					VerticalAlignment="Top"
-					HorizontalAlignment="Center">
-				<Button x:Name="Ungraded_Button"
-						Margin="5px"
-						materialDesign:ButtonAssist.CornerRadius="5"
-						IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-						Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
-						Padding="2px"
-						Height="65px"
-						Width="150px" 
-						Click="Ungraded_Button_Click">
-					<TextBlock
-						Text="Ungraded"
-						FontSize="25px"
-						TextWrapping="Wrap"
-						TextAlignment="Center"
-						Foreground="White"/>
-				</Button>
-				<Button x:Name="Grade1_Button"
-						Margin="5px"
-						materialDesign:ButtonAssist.CornerRadius="5"
-						IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-						Style="{StaticResource MaterialDesignRaisedButton}"
-						Padding="2px"
-						Height="65px"
-						Width="150px"
-						Click="Grade1_Button_Click">
-					<TextBlock
-						Text="#1"
-						FontSize="25px"
-						TextWrapping="Wrap"
-						TextAlignment="Center"
-						Foreground="White"/>
-				</Button>
-				<Button x:Name="Grade2_Button"
-						Margin="5px"
-						materialDesign:ButtonAssist.CornerRadius="5"
-						IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-						Style="{StaticResource MaterialDesignRaisedButton}"
-						Padding="2px"
-						Height="65px"
-						Width="150px"
-						Click="Grade2_Button_Click">
-					<TextBlock
-						Text="#2"
-						FontSize="25px"
-						TextWrapping="Wrap"
-						TextAlignment="Center"
-						Foreground="White"/>
-				</Button>
-				<Button x:Name="Grade3_Button"
-						Margin="5px"
-						materialDesign:ButtonAssist.CornerRadius="5"
-						IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-						Style="{StaticResource MaterialDesignRaisedButton}"
-						Padding="2px"
-						Height="65px"
-						Width="150px"
-						Click="Grade3_Button_Click">
-					<TextBlock
-						Text="#3"
-						FontSize="25px"
-						TextWrapping="Wrap"
-						TextAlignment="Center"
-						Foreground="White"/>
-				</Button>
+					<!-- Grade options -->
+					<TextBlock 
+					Text="Grade" 
+					HorizontalAlignment="Center" 
+					Margin="0,10,0,5" 
+					FontWeight="Bold" 
+					FontSize="30"/>
 
-			</StackPanel>
+					<StackPanel
+						Margin="20"
+						Orientation="Horizontal"
+						VerticalAlignment="Top"
+						HorizontalAlignment="Center">
+						<Button x:Name="Ungraded_Button"
+							Margin="5px"
+							materialDesign:ButtonAssist.CornerRadius="5"
+							IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+							Style="{StaticResource MaterialDesignRaisedSecondaryButton}"
+							Padding="2px"
+							Height="65px"
+							Width="150px" 
+							Click="Ungraded_Button_Click">
+							<TextBlock
+							Text="Ungraded"
+							FontSize="25px"
+							TextWrapping="Wrap"
+							TextAlignment="Center"
+							Foreground="White"/>
+						</Button>
+						<Button x:Name="Grade1_Button"
+							Margin="5px"
+							materialDesign:ButtonAssist.CornerRadius="5"
+							IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+							Style="{StaticResource MaterialDesignRaisedButton}"
+							Padding="2px"
+							Height="65px"
+							Width="150px"
+							Click="Grade1_Button_Click">
+							<TextBlock
+							Text="#1"
+							FontSize="25px"
+							TextWrapping="Wrap"
+							TextAlignment="Center"
+							Foreground="White"/>
+						</Button>
+						<Button x:Name="Grade2_Button"
+							Margin="5px"
+							materialDesign:ButtonAssist.CornerRadius="5"
+							IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+							Style="{StaticResource MaterialDesignRaisedButton}"
+							Padding="2px"
+							Height="65px"
+							Width="150px"
+							Click="Grade2_Button_Click">
+							<TextBlock
+							Text="#2"
+							FontSize="25px"
+							TextWrapping="Wrap"
+							TextAlignment="Center"
+							Foreground="White"/>
+						</Button>
+						<Button x:Name="Grade3_Button"
+							Margin="5px"
+							materialDesign:ButtonAssist.CornerRadius="5"
+							IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+							Style="{StaticResource MaterialDesignRaisedButton}"
+							Padding="2px"
+							Height="65px"
+							Width="150px"
+							Click="Grade3_Button_Click">
+							<TextBlock
+							Text="#3"
+							FontSize="25px"
+							TextWrapping="Wrap"
+							TextAlignment="Center"
+							Foreground="White"/>
+						</Button>
 
-			<Rectangle Height="1"
-					   Fill="LightGray"
-					   HorizontalAlignment="Stretch"
-					   Margin="20,5,20,5"/>
+					</StackPanel>
 
-			<!-- Final confirmation display -->
-			<TextBlock 
-				Text="Please Confirm Your Selection" 
-				HorizontalAlignment="Center" 
-				Margin="0,20,0,5" 
-				FontWeight="Bold" 
-				TextDecorations="Underline" 
-				FontSize="30"/>
+					<Rectangle Height="1"
+						   Fill="LightGray"
+						   HorizontalAlignment="Stretch"
+						   Margin="20,5,20,5"/>
 
-			<TextBlock x:Name="Entry_Description"
-						Margin="0,10,0,10"
-						TextWrapping="Wrap"
-						FontSize="25"
-						HorizontalAlignment="Center"
-						TextAlignment="Center"
-						FontWeight="DemiBold">1" x 3" x 4' x 240 pieces (Ungraded)<LineBreak/><Italic>Lift Height x Width: 16 x 18</Italic></TextBlock>
+					<!-- Final confirmation display -->
+					<TextBlock 
+					Text="Please Confirm Your Selection" 
+					HorizontalAlignment="Center" 
+					Margin="0,20,0,5" 
+					FontWeight="Bold" 
+					TextDecorations="Underline" 
+					FontSize="30"/>
 
-			<StackPanel
-				Margin="10"
-				HorizontalAlignment="Center"
-				Orientation="Horizontal">
-				<Button x:Name="Confirm_Button"
-						Grid.Row="1" Grid.Column="1"
-						Margin="10,0"
-						materialDesign:ButtonAssist.CornerRadius="5"
-						Height="65px"
-						Width="150px"
-						IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-						Style="{StaticResource MaterialDesignRaisedDarkButton}"
-						Padding="2px"
-						Content="Confirm"
-						FontSize="25"
-						Foreground="White"
-						Click="Confirm_Button_Click"/>
-				<Button x:Name="Close_Button"
-						Grid.Row="1" Grid.Column="1"
-						Margin="10,0"
-						materialDesign:ButtonAssist.CornerRadius="5"
-						Height="65px"
-						Width="150px"
-						IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-						Style="{StaticResource MaterialDesignPaperDarkButton}"
-						ToolTip="MaterialDesignRaisedLightButton with Round Corners"
-						Padding="2px"
-						Content="Cancel"
-						FontSize="25"
-						Click="Close_Button_Click"/>
+					<TextBlock x:Name="Entry_Description"
+							Margin="0,10,0,10"
+							TextWrapping="Wrap"
+							FontSize="25"
+							HorizontalAlignment="Center"
+							TextAlignment="Center"
+							FontWeight="DemiBold">1" x 3" x 4' x 240 pieces (Ungraded)<LineBreak/><Italic>Lift Height x Width: 16 x 18</Italic></TextBlock>
 
-			</StackPanel>
-		</StackPanel>
-	</Grid>
+					<StackPanel
+					Margin="10"
+					HorizontalAlignment="Center"
+					Orientation="Horizontal">
+						<Button x:Name="Confirm_Button"
+							Grid.Row="1" Grid.Column="1"
+							Margin="10,0"
+							materialDesign:ButtonAssist.CornerRadius="5"
+							Height="65px"
+							Width="150px"
+							IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+							Style="{StaticResource MaterialDesignRaisedDarkButton}"
+							Padding="2px"
+							Content="Confirm"
+							FontSize="25"
+							Foreground="White"
+							Click="Confirm_Button_Click"/>
+						<Button x:Name="Close_Button"
+							Grid.Row="1" Grid.Column="1"
+							Margin="10,0"
+							materialDesign:ButtonAssist.CornerRadius="5"
+							Height="65px"
+							Width="150px"
+							IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+							Style="{StaticResource MaterialDesignPaperDarkButton}"
+							ToolTip="MaterialDesignRaisedLightButton with Round Corners"
+							Padding="2px"
+							Content="Cancel"
+							FontSize="25"
+							Click="Close_Button_Click"/>
+
+					</StackPanel>
+				</StackPanel>
+			</Grid>
+		</Viewbox>
+	</Border>
 </Window>
 
 	
